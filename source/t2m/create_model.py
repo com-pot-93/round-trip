@@ -55,6 +55,7 @@ def extract_mermaid_tasks(content):
         elements = list(dict.fromkeys(elements))
     return elements
 
+""" check if mermaid model is a valid mermaid.js """
 def validate_mermaid(mermaid,file_name="temp"):
     status = 0
     file = "{}.svg".format(file_name)
@@ -69,6 +70,7 @@ def validate_mermaid(mermaid,file_name="temp"):
     os.remove(file)
     return status
 
+""" check if mermaid model corresponds to custom predefined rules """
 def validate_custom_format(content,details=0):
     status = 1
     elements = {"tasks":{},"events":{}}

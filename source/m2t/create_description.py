@@ -8,6 +8,7 @@ def create_prompt(process_model,graph_type="mermaid.js",elref=1):
         prompt = "Read this {} model: {}. Convert this model to a textual process description using simple natural language without mentioning types of the model elements (i.e., task, startevent, endevent,gateway, etc.). Return only text summary".format(graph_type,process_model)
     return prompt
 
+""" call llm to generate process description out of model """
 def generate_description(model,process_model,graph_type="mermaid.js",elref=1):
     try:
         prompt = create_prompt(process_model,graph_type,elref)

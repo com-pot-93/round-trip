@@ -52,6 +52,7 @@ def get_elements(content,elements):
             counter = counter + 1
     return elements
 
+""" return the last id in the model """
 def get_max_keys(elements):
     elements.pop('sequenceFlows', None)
     ids = []
@@ -62,6 +63,7 @@ def get_max_keys(elements):
     maxi = max(ids) + 1
     return maxi
 
+""" adjust the list of unique elements according to the sap schema """
 def sort_elements(elements,final):
     for e in elements:
         for t in elements[e]:
@@ -84,6 +86,7 @@ def sort_elements(elements,final):
     final = json.dumps(final, indent = 4)
     return final
 
+""" convert mermaid.js model into bpmn.json """
 def mermaid_to_json(generated):
     all_nodes = get_elements(generated,deepcopy(template))
     converted = sort_elements(all_nodes,deepcopy(final_template))
