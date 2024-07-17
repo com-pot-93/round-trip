@@ -92,3 +92,55 @@ def mermaid_to_json(generated):
     converted = sort_elements(all_nodes,deepcopy(final_template))
     return converted
 
+def transform_nodes(model):
+    nodes = {}
+    for etype in model:
+        for e in model[etype]:
+            elem_id = e["id"]
+            if etype == "tasks":
+                task_label = e["name"]
+                node = "{}:{}:({})".format(elem_id,"task",task_label)
+                nodes[elem_id] = node
+            elif etype == "events":
+                event_type = e["type"]
+                if "start" in event_type.lower():
+                    node_type = "startevent"
+                    event_label = "start event"
+                elif "end" in event_type.lower():
+                    node_type = "endevent"
+                    event_label = "end event"
+                else:
+                    continue
+                node = "{}:{}:(({}))".format(elem_id,node_type,event_label)
+                nodes[elem_id] = node
+            elif etype == "gateways":
+                gateway_type = e["type"]
+                if gateway_type == "Exclusive":
+                    node_type = "exclusivegateway"
+                    gate_label = "x"
+                elif gateway_type == "Parallel":
+                    node_type = "parallelgateway"
+                    gate_label = "AND"
+                else:
+                    continue
+                node = "{}:{}:{{{}}}".format(elem_id,node_type,gate_label)
+                nodes[elem_id] = node
+    return nodes
+
+def define_structure(model,nodes):
+    tupels = []
+    flow = model["sequenceFlows"]
+    for f in flow:
+        source = f["sourceRef"]
+        target = f["targetRef"]
+        tupel = "{} --> {}".format(nodes[source],nodes[target])
+        tupels.append(tupel)
+    mermaid = "\n".join(tupels)
+    mermaid = "graph LR\n" + mermaid
+    return mermaid
+
+def json_to_mermaid(json_data):
+    nodes = transform_nodes(json_data)
+    new_model = define_structure(json_data,nodes)
+    return new_model
+
