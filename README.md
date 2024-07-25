@@ -1,8 +1,9 @@
 # round-trip
 prepare pipeline (m2t,t2m) for roundtriping with LLMs
 
-data-sets (data/):
-    Pet Data Set [ADD LINK]
+<h1>Data [data/]() </h1>
+
+    [Pet Data Set](https://huggingface.co/datasets/patriziobellan/PET)
         data/pet/process\_descriptions: textual descriptions for 7 selected examples from PET data set
         data/pet/bpmn-xml:             models in BPMN2.0 format with process descriptions
         data/pet/mermaid:              models in mermaid.js format associated with process descriptions

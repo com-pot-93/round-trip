@@ -69,7 +69,8 @@ flowchart LR
 # test = mermaid_to_json(generated)
 # print(test)
 
-model = open('examples/generated_1.txt')
+# model = open('examples/generated_1.txt')
+model = open('examples/ground_2.txt')
 elements = json.load(model)
 mermaid = json_to_mermaid(elements)
 print(mermaid)
