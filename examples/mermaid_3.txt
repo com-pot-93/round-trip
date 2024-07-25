@@ -1,0 +1,11 @@
+graph LR
+1:startevent:((start event)) --> 2:task:(MSPN sends a d)ismissal)
+2:task:( ) --> 3:task:(MSPO reviews the dismissal)
+8:startevent: --> 3:task:
+3 --> 4:exclusivegateway:(Decision)
+3 --> 4:exclusivegateway:(Decision)
+4:gateway: -- Rejected --> 5:task:(MSPO rejects the dismissal of the MSPN)
+4:exclusivegateway: -- Confirmed -> 6:task:(MSPO confirms the dismissal of the MSPN)
+5:task: --> 7:endevent:((end event)
+6:task: --> 7:endevent:((end event))
+
