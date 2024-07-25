@@ -1,5 +1,5 @@
 # round-trip
-prepare pipeline (m2t,t2m) for roundtriping with LLMs
+Info: Pipeline (m2t,t2m) for roundtriping with LLMs
 
 <h1> Data Sets [data/] </h1>
 
@@ -25,25 +25,30 @@ prepare pipeline (m2t,t2m) for roundtriping with LLMs
 * **source/merson**: 
     * *merson\_converter.py*:            conver mermaid.js into bpmn.json
 
-<h1> Virtual Environment [.] </h1>
+<h1> Virtual Environment </h1>
 
 * **Pipfile, Pipfile.lock**: virtual environment
 * **.env**: environmental variables
     * $\color{VioletRed}{\textsf{OPENAI\\_API\\_KEY}}$: add your openai key
 
+
 <h1> Execution </h1>
 
+* **examples.py**: some examples to test the funtionality
+  
 1. clone the repo
-   - git clone <repo_name>
-3. navigate to the data_compression directory
+   - `git clone <repo_name>`
+3. navigate to the round-trip directory
+4. set $\color{VioletRed}{\textsf{OPENAI\\_API\\_KEY}}$ 
 5. create virtual environment
-   - pipenv install
+   - `pipenv install`
 7. install all required libraries
-   - pipenv install -r requirements.txt
-9. navigate to the data_compression/source
-10. execute start.sh to run the service
-11. sh start
+   - `pipenv install -r requirements.txt`
+9. start the environment
+    - `pipenv shell` 
+11. execute your python scripth
+    - `python <file\_name.py>`
 
-examples.py: some examples to test the funtionality
+
 
 
