@@ -1,3 +1,4 @@
+--- ask_open_ai.py ----
 'davinci' models are now replaced through 'gpt-3.5-turbo-instruct'. See https://platform.openai.com/docs/deprecations
 
 'gpt-3.5-turbo-instruct' can be executed with 'chat.completions' api.
