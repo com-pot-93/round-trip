@@ -73,6 +73,9 @@ Import package: `from source.merson.merson_converter import <function_name>`
 * To convert BPMN.json into mermaid.js process model use</br>
 `json_to_mermaid(json_model)`, where:
   * json_model: *dict* : BPMN.json model
+  
+  **Function returns**: 
+  * mermaid_model: *string* : generated mermaid.js process model
  
  <h1> model_info  [source/model_info/] </h1>
 
@@ -104,5 +107,4 @@ Import package: `from source.model_info.get_information import <function_name>`
   **Function returns**: 
   * task\_list: *array*: list of tasks from generated mermaid.js model
   
-  **Function returns**: 
-  * mermaid_model: *string* : generated mermaid.js process model
+
