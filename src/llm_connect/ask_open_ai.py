@@ -1,10 +1,15 @@
 from openai import OpenAI
 import json
 import os
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+open_key = config["OPENAI_API_KEY"]
 
 """ get openai key from .env """
 open_app = OpenAI(
-  api_key=os.environ.get("OPENAI_API_KEY"),
+  api_key = open_key,
+  #api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
 """ define prompt parametes """

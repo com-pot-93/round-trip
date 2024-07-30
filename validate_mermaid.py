@@ -1,4 +1,4 @@
-from source.merson.merson_converter import mermaid_to_json
+from src.merson.merson_converter import mermaid_to_json
 import json
 import os
 

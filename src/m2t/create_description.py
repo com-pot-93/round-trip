@@ -1,4 +1,4 @@
-from source.llm_connect.ask_open_ai import ask_gpt
+from src.llm_connect.ask_open_ai import ask_gpt
 
 """ prompt for process description generation """
 def create_prompt(process_model,graph_type="mermaid.js",elref=1):

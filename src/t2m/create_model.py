@@ -1,5 +1,5 @@
-from source.t2m.prompt_engineering import mermaid, graphviz
-from source.llm_connect.ask_open_ai import ask_gpt
+from src.t2m.prompt_engineering import mermaid, graphviz
+from src.llm_connect.ask_open_ai import ask_gpt
 
 """ prompt for model generation """
 def create_prompt(description,set_of_rules,graph_type="mermaid.js"):

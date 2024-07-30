@@ -1,4 +1,4 @@
-from source.model_info.get_information import get_task_nodes
+from src.model_info.get_information import get_task_nodes
 from copy import deepcopy
 import json
 import re
