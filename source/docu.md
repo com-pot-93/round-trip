@@ -35,28 +35,6 @@ Import package: `from source.t2m.create_model import <function_name>`
   **Function returns**: 
   * mermaid_model: *string* : generated mermaid.js process model 
 
-* To validate whether newly generated mermaid.js model conforms to the Mermaid.js specificatio use</br>
-`validate_mermaid(mermaid_model)`, where:
-  * mermaid_model: *string* : generated mermaid.js process model
-  
-  **Function returns**: 
-  * status: *int* : validation status of generated model (1 - correct, 0 - not correct)  
-
-* To validate whether newly generated mermaid.js model conforms customly predefined output format use</br>
-`validate_custom_format(mermaid_model)`, where:
-  * mermaid_model: *string* : generated process mermaid.js model
-  
-  **Function returns**: 
-  * status: *int* : validation status of generated model (1 - correct, 0 - not correct)
-  * errors: *array*: list of errors that were found during validation
-
-* To extract the list of tasks from generated model use</br>
-`extract_mermaid_tasks(mermaid_model)`, where:
-  * mermaid_model: *string* : generated mermaid.js process model
-  
-  **Function returns**: 
-  * task\_list: *array*: list of tasks from generated mermaid.js model
-
 <h2> Prompt Engineering [source/t2m/prompt_engineering] </h2>
 
 File contains suplimentary material (i.e., rules for predefined output format for different model types) that is required for proper prompt engineering to be able to generate models. 
@@ -95,6 +73,36 @@ Import package: `from source.merson.merson_converter import <function_name>`
 * To convert BPMN.json into mermaid.js process model use</br>
 `json_to_mermaid(json_model)`, where:
   * json_model: *dict* : BPMN.json model
+ 
+ <h1> model_info  [source/model_info/] </h1>
+
+<h2> Get Information [source/model_info/get_information] </h2>
+
+Import package: `from source.model_info.get_information import <function_name>`
+
+<h3> Functions: </h3>
+
+* To validate whether newly generated mermaid.js model conforms to the Mermaid.js specificatio use</br>
+`validate_mermaid(mermaid_model)`, where:
+  * mermaid_model: *string* : generated mermaid.js process model
+  
+  **Function returns**: 
+  * status: *int* : validation status of generated model (1 - correct, 0 - not correct)  
+
+* To validate whether newly generated mermaid.js model conforms customly predefined output format use</br>
+`validate_custom_format(mermaid_model)`, where:
+  * mermaid_model: *string* : generated process mermaid.js model
+  
+  **Function returns**: 
+  * status: *int* : validation status of generated model (1 - correct, 0 - not correct)
+  * errors: *array*: list of errors that were found during validation
+
+* To extract the list of tasks from generated model use</br>
+`extract_mermaid_tasks(mermaid_model)`, where:
+  * mermaid_model: *string* : generated mermaid.js process model
+  
+  **Function returns**: 
+  * task\_list: *array*: list of tasks from generated mermaid.js model
   
   **Function returns**: 
   * mermaid_model: *string* : generated mermaid.js process model
