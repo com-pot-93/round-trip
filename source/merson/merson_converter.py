@@ -1,4 +1,4 @@
-from source.t2m.create_model import get_task_nodes
+from source.model_info.get_information import get_task_nodes
 from copy import deepcopy
 import json
 import re
@@ -79,8 +79,10 @@ def sort_elements(elements,final):
             elif e == "gateways":
                 if "exclusive" in elements[e][t]:
                     gateway = {'id': t,'type':'Exclusive'}
-                elif "end" in elements[e][t]:
+                elif "parallel" in elements[e][t]:
                     gateway = {'id': t,'type':'Parallel'}
+                else:
+                    gateway = {'id': t,'type':'UNDEFINED'}
                 final["gateways"].append(gateway)
     final["sequenceFlows"] = elements["sequenceFlows"]
     final = json.dumps(final, indent = 4)
