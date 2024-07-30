@@ -1,0 +1,19 @@
+graph LR
+_mHY_s4DjEeuQ39D0kiviQA:startevent:((start event)) --> _yC07IJbVEeuov_fbueBc_Q:exclusivegateway:{x}
+_mHY_7oDjEeuQ39D0kiviQA:task:(Receiving the order) --> _mHY_3oDjEeuQ39D0kiviQA:task:(Request Logging and Categorization)
+_mHY_3oDjEeuQ39D0kiviQA:task:(Request Logging and Categorization) --> _jEsH4JbVEeuov_fbueBc_Q:exclusivegateway:{x}
+_mHY__oDjEeuQ39D0kiviQA:parallelgateway:{AND} --> _mHZAGYDjEeuQ39D0kiviQA:task:(Request Monitoring and Escalation)
+_mHY__oDjEeuQ39D0kiviQA:parallelgateway:{AND} --> _mHZAMYDjEeuQ39D0kiviQA:task:(Request Model Execution)
+_mHZAGYDjEeuQ39D0kiviQA:task:(Request Monitoring and Escalation) --> _mHZAK4DjEeuQ39D0kiviQA:parallelgateway:{AND}
+_mHZAMYDjEeuQ39D0kiviQA:task:(Request Model Execution) --> _mHZAK4DjEeuQ39D0kiviQA:parallelgateway:{AND}
+_mHZAK4DjEeuQ39D0kiviQA:parallelgateway:{AND} --> _mHZAA4DjEeuQ39D0kiviQA:task:(Request Closure and Evaluation)
+_mHZAA4DjEeuQ39D0kiviQA:task:(Request Closure and Evaluation) --> _mHZAE4DjEeuQ39D0kiviQA:exclusivegateway:{x}
+_mHZAE4DjEeuQ39D0kiviQA:exclusivegateway:{x} --> _mHY_yIDjEeuQ39D0kiviQA:task:(Request Fulfilment Support)
+_mHY_yIDjEeuQ39D0kiviQA:task:(Request Fulfilment Support) --> _mHY_2IDjEeuQ39D0kiviQA:endevent:((end event))
+_mHZAE4DjEeuQ39D0kiviQA:exclusivegateway:{x} --> _r7888IWREeu-Eub0aOe2Zg:endevent:((end event))
+_mHY_uIDjEeuQ39D0kiviQA:task:(Sending the order for request handling) --> _mHY_7oDjEeuQ39D0kiviQA:task:(Receiving the order)
+_jEsH4JbVEeuov_fbueBc_Q:exclusivegateway:{x} --> _mHY__oDjEeuQ39D0kiviQA:parallelgateway:{AND}
+_yC07IJbVEeuov_fbueBc_Q:exclusivegateway:{x} --> _7Bp3UJbVEeuov_fbueBc_Q:task:(verify request)
+_7Bp3UJbVEeuov_fbueBc_Q:task:(verify request) --> _mHY_uIDjEeuQ39D0kiviQA:task:(Sending the order for request handling)
+_jEsH4JbVEeuov_fbueBc_Q:exclusivegateway:{x} --> _yC07IJbVEeuov_fbueBc_Q:exclusivegateway:{x}
+

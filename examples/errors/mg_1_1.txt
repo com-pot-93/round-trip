@@ -1,0 +1,14 @@
+graph LR
+8:startevent:((start event)) --> 1:task:(verify request and Sending the order for request handling)
+1:task: --> 2:task:(Receiving the order)
+2:task:(Receiving the order) --> 3:task:(Request Logging and Categorization)
+3:task:(Request Logging and Categorization) --> 12:exclusivegateway:{x}
+12:exclusivegateway:{x} --> 13:parallelgateway:{AND}
+12:exclusivegateway:{x} --> 10:endevent:((end event))
+13:parallelgateway:{AND} --> 4:task:(Request Monitoring and Escalation)
+4:task:(Request Monitoring and Escalation) --> 14:parallelgateway:{AND}
+14:parallelgateway:{AND} --> 5:task:(Request Model Execution)
+5:task:(Request Model Execution) --> 6:task:(Request Closure and Evaluation)
+6:task:(Request Closure and Evaluation) --> 9:endevent:((end event))
+13:parallelgateway:{AND} --> 7:task:(Request Fulfilment Support)
+7:task:(Request Fulfilment Support) --> 14:parallelgateway:{AND}
