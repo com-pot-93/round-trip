@@ -7,6 +7,8 @@ Info: Pipeline (m2t,t2m) for roundtriping with LLMs
 * **data/pet/process\_descriptions**: textual descriptions for 7 selected examples from PET data set
 * **data/pet/bpmn-xml**:             models in BPMN2.0 format with process descriptions
 * **data/pet/mermaid**:              models in mermaid.js format associated with process descriptions
+* **data/pet/generated_mermaid**:              models in mermaid.js format generated for process descriptions
+* **data/pet/generated_json**:              models in json format generated for process descriptions
 
 [Internal Uni Data Set](https://zenodo.org/records/7783492) </br>
 * **source/inter/bpmn-xml**:              multiple models in BPMN2.0 format with process descriptions
@@ -25,7 +27,9 @@ Info: Pipeline (m2t,t2m) for roundtriping with LLMs
     * *prompt\_engineering.py*:         custom rules for mermaid.js output format
     * *create\_model.py*:               convert textual process descriptions into mermaid.js process models
 * **source/merson**:
-    * *merson\_converter.py*:            conver mermaid.js into bpmn.json
+    * *merson\_converter.py*:           conver mermaid.js into bpmn.json
+* **source/model_info**:
+    * *get\_information.py*:            validate mermaid.js models, extract tasks, .etc
 
 <h1> Virtual Environment </h1>
 
