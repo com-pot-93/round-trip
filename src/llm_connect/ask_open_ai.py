@@ -13,13 +13,20 @@ open_app = OpenAI(
 )
 
 """ define prompt parametes """
-parameters = {
-    "temperature":0,
-    "max_tokens":1024,
-    "top_p": 1,
-    "frequency_penalty":0,
-    "presence_penalty":0
-}
+def get_parameters():
+    file = os.path.join(os.getcwd(),'src', 'llm_connect','parameters.json')
+    with open(file, "r") as infile:
+        params = json.load(infile)
+        return params
+
+def set_parameter(key,value):
+    params = get_parameters()
+    params[key] = value
+    file = os.path.join(os.getcwd(),'src', 'llm_connect','parameters.json')
+    with open(file, 'w') as f:
+        json.dump(params, f)
+
+parameters = get_parameters()
 
 """ call gpt model via completions """
 def ask_gpt_complete(prompt,model,parameters):

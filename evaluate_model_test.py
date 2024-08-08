@@ -70,3 +70,14 @@ similarity = bpmn_similarity.calculate_similarity_scores(generated1, gt1)
 similarity = json.dumps(similarity, sort_keys=True, indent=4)
 print(similarity)
 
+similarity = bpmn_similarity.calculate_similarity_scores(generated1, gt1, method="jaccard")
+similarity = json.dumps(similarity, sort_keys=True, indent=4)
+print(similarity)
+
+similarity = bpmn_similarity.calculate_similarity_scores(generated1, gt1, method="recall")
+similarity = json.dumps(similarity, sort_keys=True, indent=4)
+print(similarity)
+
+similarity = bpmn_similarity.calculate_similarity_scores(generated1, gt1, method="precision")
+similarity = json.dumps(similarity, sort_keys=True, indent=4)
+print(similarity)
