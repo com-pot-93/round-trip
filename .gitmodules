@@ -1,0 +1,3 @@
+[submodule "evaluation"]
+	path = evaluation
+	url = https://github.com/SAP-samples/model-to-model-evaluation-code.git
