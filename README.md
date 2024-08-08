@@ -33,7 +33,7 @@ Info: Pipeline (m2t,t2m) for roundtriping with LLMs
 
 <h1> Virtual Environment </h1>
 
-* **Pipfile, Pipfile.lock**: virtual environment
+* **pyproject.toml, poetry.lock**: virtual environment
 * **.env**: environmental variables
     * $\color{VioletRed}{\textsf{OPENAI\\_API\\_KEY}}$: add your openai key
 
@@ -45,12 +45,13 @@ Info: Pipeline (m2t,t2m) for roundtriping with LLMs
    - `git clone <repo_name>`
 3. navigate to the round-trip directory
 4. set $\color{VioletRed}{\textsf{OPENAI\\_API\\_KEY}}$
-5. create virtual environment
-   - `pipenv install`
-7. install all required libraries
-   - `pipenv install -r requirements.txt`
+5. create python virtual environment 3.11
+6. run poetry install
+7. add dotenv pluging
+8. install all required libraries
+   - `pip install -r requirements.txt`
 9. start the environment
-    - `pipenv shell`
+    - `poetry shell`
 11. execute your python scripth
     - `python <file\_name.py>`
 
