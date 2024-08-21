@@ -1,4 +1,4 @@
-from text_evaluation.text_similarity import get_cosine, sts_bert
+from text_evaluation.text_similarity import get_cosine, sts_bert, get_kpis
 
 text1 = """After a claim is registered , it is examined by a claims officer .
 The claims officer then writes a settlement recommendation .
@@ -12,9 +12,12 @@ In the other path, if the marking is not okay, the senior claims officer sends t
 """
 
 sim_score = get_cosine(text1,text2)
-print(sim_score)
-
 sim_score_2 = sts_bert(text1,text2)
-print(sim_score_2)
 
+print(sim_score,sim_score_2)
+
+values_cos = get_kpis(text1,text2,"cos")
+values_bert = get_kpis(text1,text2,"bert")
+print(values_cos)
+print(values_bert)
 
