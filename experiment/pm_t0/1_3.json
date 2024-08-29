@@ -1,0 +1,162 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Guest makes a call",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Manager takes down the order",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Submit order ticket to kitchen",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Give order to sommelier",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "Assign order to waiter",
+            "type": "Service"
+        },
+        {
+            "id": "task7",
+            "name": "Kitchen and sommelier start tasks",
+            "type": "Parallel"
+        },
+        {
+            "id": "task9",
+            "name": "Waiter readies the cart",
+            "type": "User"
+        },
+        {
+            "id": "task10",
+            "name": "Waiter delivers the cart",
+            "type": "User"
+        },
+        {
+            "id": "task11",
+            "name": "Waiter returns to room service station",
+            "type": "User"
+        },
+        {
+            "id": "task13",
+            "name": "Waiter waits to do the billing",
+            "type": "User"
+        },
+        {
+            "id": "task15",
+            "name": "Directly debit the guest account",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event16",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Process splits into two paths",
+            "type": "Parallel"
+        },
+        {
+            "id": "gateway2",
+            "name": "Exclusive decision point",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task4",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task5",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "gateway1",
+            "targetRef": "task7"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway1",
+            "targetRef": "task9"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task7",
+            "targetRef": "task10"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "task9",
+            "targetRef": "task10"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "task10",
+            "targetRef": "task11"
+        },
+        {
+            "id": "flow11",
+            "sourceRef": "task11",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow12",
+            "sourceRef": "gateway2",
+            "targetRef": "task13"
+        },
+        {
+            "id": "flow13",
+            "sourceRef": "gateway2",
+            "targetRef": "task15"
+        },
+        {
+            "id": "flow14",
+            "sourceRef": "task13",
+            "targetRef": "event16"
+        },
+        {
+            "id": "flow15",
+            "sourceRef": "task15",
+            "targetRef": "event16"
+        }
+    ],
+    "messageFlows": []
+}

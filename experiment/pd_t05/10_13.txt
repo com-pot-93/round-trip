@@ -1,0 +1,1 @@
+The process begins with the event named "start". From there, the next step is "INQ transmits the transaction data request". Following this, "IP checks the request" takes place. After this, "IP answers the question" occurs. Finally, the process ends with the event named "end".

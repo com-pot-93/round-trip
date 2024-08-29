@@ -1,0 +1,197 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Customer brings defective computer",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "CRS checks the defect",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "CRS hands out repair cost calculation",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Customer takes the computer home",
+            "type": "User"
+        },
+        {
+            "id": "task5",
+            "name": "Checking the hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task6",
+            "name": "Checking the software",
+            "type": "Service"
+        },
+        {
+            "id": "task7",
+            "name": "Repairing the hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task8",
+            "name": "Configuring the software",
+            "type": "Service"
+        },
+        {
+            "id": "task9",
+            "name": "Testing the system functionality",
+            "type": "Service"
+        },
+        {
+            "id": "task10",
+            "name": "Finishing the repair",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "First exclusive gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Second exclusive gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway3",
+            "name": "Parallel gateway",
+            "type": "Parallel"
+        },
+        {
+            "id": "gateway4",
+            "name": "Third exclusive gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway5",
+            "name": "Final exclusive gateway",
+            "type": "Exclusive"
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task4",
+            "targetRef": "gateway5"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway1",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway2",
+            "targetRef": "gateway3"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "gateway3",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "gateway3",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow11",
+            "sourceRef": "task5",
+            "targetRef": "task7"
+        },
+        {
+            "id": "flow12",
+            "sourceRef": "task6",
+            "targetRef": "task8"
+        },
+        {
+            "id": "flow13",
+            "sourceRef": "task7",
+            "targetRef": "gateway3"
+        },
+        {
+            "id": "flow14",
+            "sourceRef": "task8",
+            "targetRef": "gateway3"
+        },
+        {
+            "id": "flow15",
+            "sourceRef": "gateway3",
+            "targetRef": "task9"
+        },
+        {
+            "id": "flow16",
+            "sourceRef": "task9",
+            "targetRef": "gateway4"
+        },
+        {
+            "id": "flow17",
+            "sourceRef": "gateway4",
+            "targetRef": "task10"
+        },
+        {
+            "id": "flow18",
+            "sourceRef": "task10",
+            "targetRef": "gateway5"
+        },
+        {
+            "id": "flow19",
+            "sourceRef": "gateway5",
+            "targetRef": "event2"
+        },
+        {
+            "id": "flow20",
+            "sourceRef": "gateway4",
+            "targetRef": "gateway2"
+        }
+    ],
+    "pools": [],
+    "messageFlows": []
+}

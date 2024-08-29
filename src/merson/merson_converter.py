@@ -116,17 +116,18 @@ def transform_nodes(model):
                 node = "{}:{}:(({}))".format(elem_id,node_type,event_label)
                 nodes[elem_id] = node
             elif etype == "gateways":
-                gateway_type = e["type"]
-                if gateway_type == "Exclusive":
+                gateway_type = e["type"].lower()
+                if gateway_type == "exclusive" or "exclusive" in gateway_type:
                     node_type = "exclusivegateway"
                     gate_label = "x"
-                elif gateway_type == "Parallel":
+                elif gateway_type == "parallel" or "parallel" in gateway_type:
                     node_type = "parallelgateway"
                     gate_label = "AND"
                 else:
                     continue
                 node = "{}:{}:{{{}}}".format(elem_id,node_type,gate_label)
                 nodes[elem_id] = node
+    print(nodes)
     return nodes
 
 def define_structure(model,nodes):

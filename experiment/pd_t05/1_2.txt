@@ -1,0 +1,11 @@
+The process begins with the event "start". The first task in the process is "customer brings defective computer". The next task is "the crs checks the defect", followed by "the crs hands out repair cost calculation". 
+
+From here, the process can follow two paths. One path leads to "customer takes computer home". The other path leads to a decision point. 
+
+At this decision point, two tasks can be performed in parallel: "check the hardware" and "checks the software". After "check the hardware", the task "repair the hardware" is performed. After "checks the software", the task "configures the software" is performed. 
+
+Once both "repair the hardware" and "configures the software" are complete, the process moves to "test system functionality". 
+
+From "test system functionality", the process can follow two paths. One path leads to "repair is finished". The other path leads back to the decision point mentioned earlier.
+
+After "repair is finished", the process moves to the event "end".

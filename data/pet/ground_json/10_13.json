@@ -1,1 +1,56 @@
-"{\n    \"tasks\": [\n        {\n            \"id\": \"1\",\n            \"name\": \"INQ transmits the transaction data request\",\n            \"type\": \"User\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"IP checks the request\",\n            \"type\": \"User\"\n        },\n        {\n            \"id\": \"3\",\n            \"name\": \"IP answers the question\",\n            \"type\": \"User\"\n        }\n    ],\n    \"events\": [\n        {\n            \"id\": \"0\",\n            \"name\": \"start\",\n            \"type\": \"StartNoneEvent\"\n        },\n        {\n            \"id\": \"4\",\n            \"name\": \"end\",\n            \"type\": \"EndNoneEvent\"\n        }\n    ],\n    \"gateways\": [],\n    \"pools\": [],\n    \"sequenceFlows\": [\n        {\n            \"id\": \"sf0\",\n            \"sourceRef\": \"0\",\n            \"targetRef\": \"1\"\n        },\n        {\n            \"id\": \"sf1\",\n            \"sourceRef\": \"1\",\n            \"targetRef\": \"2\"\n        },\n        {\n            \"id\": \"sf2\",\n            \"sourceRef\": \"2\",\n            \"targetRef\": \"3\"\n        },\n        {\n            \"id\": \"sf3\",\n            \"sourceRef\": \"3\",\n            \"targetRef\": \"4\"\n        }\n    ],\n    \"messageFlows\": []\n}"
+{
+    "events": [
+        {
+            "id": "0",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "4",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "messageFlows": [],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "sf0",
+            "sourceRef": "0",
+            "targetRef": "1"
+        },
+        {
+            "id": "sf1",
+            "sourceRef": "1",
+            "targetRef": "2"
+        },
+        {
+            "id": "sf2",
+            "sourceRef": "2",
+            "targetRef": "3"
+        },
+        {
+            "id": "sf3",
+            "sourceRef": "3",
+            "targetRef": "4"
+        }
+    ],
+    "tasks": [
+        {
+            "id": "1",
+            "name": "INQ transmits the transaction data request",
+            "type": "User"
+        },
+        {
+            "id": "2",
+            "name": "IP checks the request",
+            "type": "User"
+        },
+        {
+            "id": "3",
+            "name": "IP answers the question",
+            "type": "User"
+        }
+    ]
+}

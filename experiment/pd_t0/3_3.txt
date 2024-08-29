@@ -1,0 +1,5 @@
+The process begins with the 'start' event. The first task is for a claims officer to register a claim. Once the claim is registered, the same claims officer examines the claim. After examining the claim, the process reaches an exclusive gateway.
+From this gateway, the process flows to the task where the claims officer writes a settlement recommendation. This recommendation is then checked by a senior claims officer. After checking the recommendation, the senior claims officer marks the claim. 
+The process then reaches another exclusive gateway. From this gateway, the process can either proceed with the claim handling process or the senior claims officer can send the recommendation back. 
+If the senior claims officer sends the recommendation back, the process loops back to the first exclusive gateway where the claims officer writes a settlement recommendation. 
+If the claim handling process proceeds, the process ends with the 'end' event.

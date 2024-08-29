@@ -16,3 +16,13 @@ def generate_description(model,process_model,graph_type="mermaid.js",elref=1):
         return response
     except Exception as e:
         return e
+
+""" call llm to generate process description out of model """
+def generate_description_from_json(model,process_model):
+    try:
+        prompt = "Consider following process model in json format based on BPMN2.0 Standard. {}. Generate a natural language description of the process depicted in the following BPMN2.0 JSON without mentioning types of the model elements (i.e., task, startevent, endevent,gateway, etc.). Return plain text as a summary about the process.".format(process_model)
+        response = ask_gpt(model,prompt)
+        return response
+    except Exception as e:
+        return e
+

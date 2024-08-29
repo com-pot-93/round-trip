@@ -1,0 +1,7 @@
+The process begins with the 'start' event. The first task is for the customer to bring the defective computer. This task is followed by the customer service representative (CRS) checking the defect. After the defect has been checked, the CRS hands out a repair cost calculation. 
+At this point, the process reaches an exclusive gateway. Depending on the conditions defined at this gateway, the process can either proceed to the task where the customer takes the computer home, or it can proceed to another exclusive gateway. 
+If the process proceeds to the task where the customer takes the computer home, it then reaches another exclusive gateway. From this gateway, the process ends.
+If the process proceeds to the second exclusive gateway from the first one, it then reaches a parallel gateway. From this parallel gateway, two tasks can be executed simultaneously: checking the hardware and checking the software. 
+After the hardware has been checked, it is then repaired. Similarly, after the software has been checked, it is then configured. Both these tasks then converge at another parallel gateway. 
+From this parallel gateway, the system functionality is tested. After the test, the process reaches another exclusive gateway. Depending on the conditions defined at this gateway, the process can either proceed to the task where the repair is finished, or it can loop back to the second exclusive gateway. 
+If the process proceeds to the task where the repair is finished, it then reaches the final exclusive gateway. From this gateway, the process ends.

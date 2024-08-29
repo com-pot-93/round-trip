@@ -1,4 +1,4 @@
-from src.t2m.prompt_engineering import mermaid, graphviz
+from src.t2m.prompt_engineering import mermaid, graphviz, json_format
 from src.llm_connect.ask_open_ai import ask_gpt
 
 """ prompt for model generation """
@@ -24,4 +24,12 @@ def generate_model(model,description,graph_type="mermaid.js"):
     except Exception as e:
         return e
 
+""" call llm to generate json bpmn 2.0 model """
+def generate_json_model(model,description):
+    try:
+        prompt = "Consider following process description:{} Convert this process description into json bpmn 2.0 model using this rules. {}".format(description,json_format)
+        response = ask_gpt(model,prompt)
+        return response
+    except Exception as e:
+        return e
 

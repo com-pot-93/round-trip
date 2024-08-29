@@ -1,0 +1,4 @@
+The process begins when a guest makes a call (task 1). The manager then takes down the order (task 2) and submits an order ticket to the kitchen (task 3). The manager also gives an order to the sommelier (task 4) and assigns the order to the waiter (task 5). 
+At this point, the process splits into two parallel paths. On one path, the kitchen and the sommelier start doing their tasks (task 7). On the other path, the waiter readies the cart (task 9). 
+Once both the kitchen and sommelier have completed their tasks and the waiter has readied the cart, the waiter delivers the cart (task 10) and then returns to the room service station (task 11). 
+Here, the process reaches an exclusive decision point. The waiter may wait to do the billing (task 13) or directly debit the guest account (task 15). Regardless of the path taken, the process ends (event 16) after the billing is done.

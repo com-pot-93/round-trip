@@ -1,0 +1,82 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "MPON sends the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "MPOO reviews the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "MPOO opposes the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task6",
+            "name": "MPOO confirms the dismissal",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "event7",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway3",
+            "name": "Review outcome decision",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway5",
+            "name": "Final decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task2",
+            "targetRef": "gateway3"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "gateway3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway3",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task4",
+            "targetRef": "gateway5"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task6",
+            "targetRef": "gateway5"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway5",
+            "targetRef": "event7"
+        }
+    ],
+    "messageFlows": []
+}

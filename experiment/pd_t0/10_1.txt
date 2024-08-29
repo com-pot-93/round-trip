@@ -1,0 +1,4 @@
+The process begins with the task "MPON sends the dismissal" (task 1). Once this task is completed, the process moves to the next task, "MPOO reviews the dismissal" (task 2). After the review, the process reaches an exclusive gateway (gateway 3), which leads to two possible paths.
+One path leads to the task "MPOO opposes the dismissal" (task 4), and the other path leads to the task "MPOO confirms the dismissal" (task 6). The choice of path depends on the outcome of the review.
+If the dismissal is opposed, the process moves from task 4 to another exclusive gateway (gateway 5). If the dismissal is confirmed, the process also moves from task 6 to this same exclusive gateway (gateway 5).
+Finally, from gateway 5, the process ends (event 7). This means that regardless of whether the dismissal is opposed or confirmed, the process will always end at the same point.

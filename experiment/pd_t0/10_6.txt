@@ -1,0 +1,5 @@
+The process begins with the "start" event. The first task is for the MSPN to send a dismissal. Once this task is completed, the process moves to the next task where the MSPO reviews the dismissal. 
+After the review, the process reaches an exclusive gateway. This gateway represents a decision point in the process. Depending on the outcome of the review, the process can take one of two paths. 
+If the MSPO rejects the dismissal, the process moves to the task where the MSPO rejects the dismissal. If the MSPO confirms the dismissal, the process moves to the task where the MSPO confirms the dismissal. 
+Both paths then converge at another exclusive gateway. From this gateway, the process moves to the "end" event, signifying the completion of the process. 
+In summary, this process represents the steps taken when a dismissal is sent by the MSPN and reviewed by the MSPO. Depending on the decision of the MSPO, the dismissal can either be confirmed or rejected. The process ends once this decision has been made.
