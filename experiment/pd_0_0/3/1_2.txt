@@ -1,0 +1,9 @@
+The process begins with the customer bringing a defective computer. The CRS then checks the defect and hands out a repair cost calculation. From here, the process can take two paths. 
+
+In the first path, the customer takes the computer home. In the second path, the process moves to an exclusive decision point where it can go in two directions. 
+
+In one direction, the hardware is checked and then repaired. In the other direction, the software is checked and then configured. Both these paths converge at a point where the system functionality is tested. 
+
+After the system functionality test, the process moves to another exclusive decision point. Here, it can either go back to the point where the hardware and software are checked and configured or it can move forward to the point where the repair is finished. 
+
+Finally, the process ends after the repair is finished.

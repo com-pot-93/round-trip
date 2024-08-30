@@ -1,0 +1,122 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Guest makes a call",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Manager takes down the order",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Manager submits order ticket to kitchen",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Manager gives order to sommelier",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "Manager assigns order to waiter",
+            "type": "Service"
+        },
+        {
+            "id": "task6",
+            "name": "Waiter readies the cart",
+            "type": "User"
+        },
+        {
+            "id": "task7",
+            "name": "Waiter delivers the cart",
+            "type": "User"
+        },
+        {
+            "id": "task8",
+            "name": "Waiter returns to room service station",
+            "type": "User"
+        },
+        {
+            "id": "task9",
+            "name": "Waiter does the billing or debits the guest account",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "Hotel",
+            "lanes": []
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task4",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task5",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task6",
+            "targetRef": "task7"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task7",
+            "targetRef": "task8"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "task8",
+            "targetRef": "task9"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "task9",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": []
+}
