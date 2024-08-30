@@ -1,0 +1,19 @@
+1:startevent:((startevent))
+2:task:Claim registration
+3:task:Examine claim
+4:task:Write settlement recommendation
+5:task:Check settlement recommendation
+6:exclusivegateway:{OK}
+7:task:Proceed with claim handling
+8:task:Repeat recommendation
+9:endevent:((endevent))
+
+1 --> 2
+2 --> 3
+3 --> 4
+4 --> 5
+5 --> 6
+6 --> |Not OK| 8
+6 --> |OK| 7
+8 --> 4
+7 --> 9

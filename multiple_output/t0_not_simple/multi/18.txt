@@ -1,0 +1,8 @@
+graph LR
+1:startevent:((start)) --> 2:task:(Examine claim)
+2:task:(Examine claim) --> 3:task:(Write settlement recommendation)
+3:task:(Write settlement recommendation) --> 4:task:(Check by senior claims officer)
+4:task:(Check by senior claims officer) --> 5:exclusivegateway:{OK or Not OK}
+5:exclusivegateway:{OK or Not OK} -- Not OK --> 3
+5:exclusivegateway:{OK or Not OK} -- OK --> 6:task:(Proceed with claim handling)
+6:task:(Proceed with claim handling) --> 7:endevent:((end))
