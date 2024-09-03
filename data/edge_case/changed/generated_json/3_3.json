@@ -1,0 +1,112 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "claims officer registers claim",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "claims officer examines claim",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "senior claims officer marks the claim",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "senior claims officer checks recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task5",
+            "name": "claims officer writes settlement recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task6",
+            "name": "claim handling process proceeds",
+            "type": "Service"
+        },
+        {
+            "id": "task7",
+            "name": "senior claims officer sends recommendation back",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task4",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task5",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway1",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway1",
+            "targetRef": "task7"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "task7",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "task6",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": []
+}

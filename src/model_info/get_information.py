@@ -2,6 +2,19 @@ import re
 import mermaid as md
 from mermaid.graph import Graph
 import os
+import json
+
+""" clean model after generation """
+def clean_model(gen):
+    first = gen.find('{')
+    last = gen.rfind('}') + 1
+    json_str = gen[first:last]
+    try:
+        json_obj = json.loads(json_str)
+    except json.JSONDecodeError as e:
+        json_obj = {"error":"Not a valid json"}
+    return json_obj
+
 
 """ extract text between () from string """
 def get_task_nodes(t,reg_ex):

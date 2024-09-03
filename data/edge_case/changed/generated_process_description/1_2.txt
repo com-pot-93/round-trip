@@ -1,0 +1,9 @@
+The process begins with the customer bringing in a defective computer. The customer service representative (CRS) then checks the defect. After the defect has been identified, the CRS hands out a repair cost calculation. 
+
+At this point, there are two possible paths. In one scenario, the customer takes the computer home. In the other scenario, the process moves forward to the repair stage. 
+
+In the repair stage, the hardware is repaired and checked. Simultaneously, the software is checked and configured. Once both the hardware and software have been repaired and configured, the system functionality is tested. 
+
+If the system functionality test is successful, the repair is considered finished. If the test is not successful, the process returns to the repair stage. 
+
+Once the repair is finished, the process ends.

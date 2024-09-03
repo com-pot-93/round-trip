@@ -1,6 +1,6 @@
 from src.llm_connect.ask_open_ai import ask_gpt, set_parameter
 from src.t2m.create_model import generate_model, generate_json_model
-from src.model_info.get_information import extract_mermaid_tasks, validate_mermaid, validate_custom_format
+from src.model_info.get_information import extract_mermaid_tasks, validate_mermaid, validate_custom_format, clean_model
 from src.m2t.create_description import generate_description, generate_description_from_json
 from src.merson.merson_converter import mermaid_to_json,json_to_mermaid
 from text_evaluation.text_similarity import get_cosine, sts_bert, get_kpis
@@ -20,17 +20,6 @@ def create_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-def clean_model(gen):
-    first = gen.find('{')
-    last = gen.rfind('}') + 1
-    json_str = gen[first:last]
-    try:
-        json_obj = json.loads(json_str)
-    except json.JSONDecodeError as e:
-        json_obj = {"error":"Not a valid json"}
-    return json_obj
-
-
 # set default values
 processor = BPMNProcessor()
 llm = "gpt-4"
@@ -43,7 +32,7 @@ sub_dir1 = "pd_{}_{}".format(temp1,temp2)
 sub_dir2 = "pm_{}_{}".format(temp1,temp2)
 output1 = []
 output2 = []
-#set_parameter("temperature",0.5)
+excel_file = "test.xlsx"
 
 # create directories if not exist
 create_directory(main_directory)
@@ -52,6 +41,8 @@ create_directory(main_directory)
 
 for i in range(1,4):
     gen_desc =  os.path.join(main_directory,sub_dir1,str(i))
+    gen_mods =  os.path.join(main_directory,sub_dir2,str(i))
+
     # set_parameter("temperature",temp1)
     # create_directory(gen_desc)
     # for path, folders, files in os.walk(orig_models):
@@ -82,13 +73,12 @@ for i in range(1,4):
     # output_frame1 = pd.DataFrame.from_dict(output1)
     # average_metrics = output_frame1.groupby('example').mean()
 
-    # with pd.ExcelWriter("test.xlsx") as writer:
+    # with pd.ExcelWriter(excel_file) as writer:
     #     output_frame1.to_excel(writer, sheet_name="t2t", index=False)
     #     average_metrics.to_excel(writer, sheet_name="t2t-aver", index=True)
 
     # generate models from generated process desciptions
     # set_parameter("temperature",temp2)
-    gen_mods =  os.path.join(main_directory,sub_dir2,str(i))
     # create_directory(gen_mods)
     # for path, folders, files in os.walk(gen_desc):
     #      for file_name in files:
@@ -121,7 +111,7 @@ for i in range(1,4):
     output_frame2 = pd.DataFrame.from_dict(output2)
     average_metrics = output_frame2.groupby('example').mean()
 
-    with pd.ExcelWriter("test.xlsx",mode='a',if_sheet_exists='replace') as writer:
+    with pd.ExcelWriter(excel_file,mode='a',if_sheet_exists='replace') as writer:
         output_frame2.to_excel(writer, sheet_name="m2m", index=False)
         average_metrics.to_excel(writer, sheet_name="m2m-aver", index=True)
 
