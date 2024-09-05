@@ -1,4 +1,4 @@
 @Timmi:
   - ask about xml - json converter
 
-
+can pool be without lane?

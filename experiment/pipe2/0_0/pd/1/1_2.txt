@@ -1,0 +1,3 @@
+The process begins with the 'Check defect and calculate repair cost' activity. Once this is complete, it moves to the 'Customer decision on repair cost' stage. Depending on the decision made at this stage, the process can either move to 'Hardware repair and check' or it can end.
+
+If the 'Hardware repair and check' is performed, the process then moves to 'Software check and configuration'. After this, a 'System functionality test' is carried out. Depending on the result of this test, the process can either end or it can loop back to 'Hardware repair and check'.

@@ -1,0 +1,7 @@
+The process begins with "INQ transmits the transaction data request". After this, "IP checks the request of the INQ" takes place. Following this, an "Examination outcome" decision is made. Depending on the outcome, "IP answers the question of the INQ". The process ends after this step. 
+
+The process is divided into two pools: "INQ" and "IP". In the "INQ" pool, there is a lane for "Transaction request" which involves "INQ transmits the transaction data request" and "IP checks the request of the INQ". In the "IP" pool, there is a lane for "Check request" which involves "IP answers the question of the INQ" and the "Examination outcome". 
+
+The process flow is as follows: it starts, then "INQ transmits the transaction data request", after which "IP checks the request of the INQ", then the "Examination outcome" decision is made, followed by "IP answers the question of the INQ", and finally the process ends. 
+
+There are also two message flows in the process. The first one is from "INQ transmits the transaction data request" to "IP checks the request of the INQ", and the second one is from "IP checks the request of the INQ" to "IP answers the question of the INQ".

@@ -1,0 +1,5 @@
+The process starts with "Check Defect and Calculate Repair Cost". After this, a decision is made based on "Is cost acceptable?". If the cost is acceptable, the process moves to "Check and Repair Hardware" and then to "Check and Configure Software". After these steps, the "Test System Functionality" is performed. 
+
+After testing the system functionality, another decision is made based on "Is system functionality correct?". If the system functionality is correct, the process ends. If the system functionality is not correct, the process returns to "Check and Repair Hardware" and "Check and Configure Software" before testing the system functionality again. 
+
+This entire process is handled within the "Customer Service" pool, specifically within the "CRS" lane.

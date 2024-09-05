@@ -1,0 +1,7 @@
+The process begins with the event 'start'. Following this, the task of 'Checking defect and calculating repair cost' is carried out. Once this is done, the 'Customer decides on costs'. Depending on the customer's decision, the process moves to the 'Customer decision on costs'. 
+
+From this point, two tasks can be performed - 'Check and repair hardware' or 'Check and configure software'. Both of these tasks lead to the task of 'Test system functionality'. After system functionality has been tested, the process reaches the 'System functionality test'. 
+
+Depending on the results of the system functionality test, the process can either end, go back to 'Check and repair hardware', or return to 'Check and configure software'. If the system functionality test is passed, the process ends with the event 'end'. 
+
+The process involves two main roles, that of the 'Customer' and 'CRS'. The 'Customer' makes decisions regarding costs while 'CRS' handles the repair process.

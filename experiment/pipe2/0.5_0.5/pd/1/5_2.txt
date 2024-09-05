@@ -1,0 +1,5 @@
+The process begins with the "Submit Vacation Request" action. Once this action is completed, it moves to the "Supervisor Review". After the supervisor has reviewed, the process reaches a decision point, "Request Decision". From this decision point, the process can go one of two ways. 
+
+It can either move to "Review Rejection Reasons", after which it will loop back to the "Supervisor Review". Alternatively, from the "Request Decision", the process can proceed to "HR Management Procedures" and then conclude. 
+
+The process involves three distinct roles: the Employee, the Supervisor, and HR. The Employee is responsible for "Submit Vacation Request" and "Review Rejection Reasons". The Supervisor is responsible for "Supervisor Review". HR is responsible for "HR Management Procedures".

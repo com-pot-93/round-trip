@@ -1,0 +1,5 @@
+The process begins with the "Claim Registration" in the "Claims Department" specifically under the "Claims Officer". After the claim is registered, it is then examined in the same department and lane. Following the examination, a "Settlement Recommendation" is written, still under the "Claims Officer". 
+
+The process then moves to the "Senior Claims Officer" where the recommendation is checked. Depending on the outcome of the "Claim OK or Not OK" decision, the process may loop back to the recommendation check or proceed to the "Claim Handler". 
+
+The "Claim Handler" then handles the claim. Once the claim is handled, the process ends. Throughout this process, there are no message flows.

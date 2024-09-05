@@ -1,0 +1,157 @@
+{
+    "tasks": [
+        {
+            "id": "task01",
+            "name": "Customer brings defective computer",
+            "type": "User"
+        },
+        {
+            "id": "task02",
+            "name": "CRS checks the defect",
+            "type": "User"
+        },
+        {
+            "id": "task03",
+            "name": "CRS hands out repair cost calculation",
+            "type": "Service"
+        },
+        {
+            "id": "task04",
+            "name": "Check the hardware",
+            "type": "Manual"
+        },
+        {
+            "id": "task05",
+            "name": "Checks the software",
+            "type": "Manual"
+        },
+        {
+            "id": "task06",
+            "name": "Repair the hardware",
+            "type": "Manual"
+        },
+        {
+            "id": "task07",
+            "name": "Configures the software",
+            "type": "Manual"
+        },
+        {
+            "id": "task08",
+            "name": "Test system functionality",
+            "type": "Service"
+        },
+        {
+            "id": "task09",
+            "name": "Repair is finished",
+            "type": "Service"
+        },
+        {
+            "id": "task10",
+            "name": "Customer takes computer home",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "event01",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event02",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway01",
+            "name": "Hardware/Software Decision",
+            "type": "Parallel"
+        },
+        {
+            "id": "gateway02",
+            "name": "System Functionality Decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "seq01",
+            "sourceRef": "event01",
+            "targetRef": "task01"
+        },
+        {
+            "id": "seq02",
+            "sourceRef": "task01",
+            "targetRef": "task02"
+        },
+        {
+            "id": "seq03",
+            "sourceRef": "task02",
+            "targetRef": "task03"
+        },
+        {
+            "id": "seq04",
+            "sourceRef": "task03",
+            "targetRef": "gateway01"
+        },
+        {
+            "id": "seq05",
+            "sourceRef": "gateway01",
+            "targetRef": "task04"
+        },
+        {
+            "id": "seq06",
+            "sourceRef": "gateway01",
+            "targetRef": "task05"
+        },
+        {
+            "id": "seq07",
+            "sourceRef": "task04",
+            "targetRef": "task06"
+        },
+        {
+            "id": "seq08",
+            "sourceRef": "task05",
+            "targetRef": "task07"
+        },
+        {
+            "id": "seq09",
+            "sourceRef": "task06",
+            "targetRef": "task08"
+        },
+        {
+            "id": "seq10",
+            "sourceRef": "task07",
+            "targetRef": "task08"
+        },
+        {
+            "id": "seq11",
+            "sourceRef": "task08",
+            "targetRef": "gateway02"
+        },
+        {
+            "id": "seq12",
+            "sourceRef": "gateway02",
+            "targetRef": "task09"
+        },
+        {
+            "id": "seq13",
+            "sourceRef": "gateway02",
+            "targetRef": "gateway01"
+        },
+        {
+            "id": "seq14",
+            "sourceRef": "task09",
+            "targetRef": "task10"
+        },
+        {
+            "id": "seq15",
+            "sourceRef": "task10",
+            "targetRef": "event02"
+        }
+    ],
+    "messageFlows": []
+}

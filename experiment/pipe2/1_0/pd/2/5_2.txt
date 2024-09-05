@@ -1,0 +1,7 @@
+The process begins with the "Submit Vacation Request" action. Once this action is completed, the process moves to the "Review Vacation Request" action. After the review, a decision is made in the "Request Decision" stage. 
+
+If the request is approved, the process moves to the "Approve/Reject Request" action. If the request is rejected, the reasons for rejection are reviewed in the "Review Rejection Reasons" action. After reviewing the reasons, the process returns to the "Submit Vacation Request" action.
+
+If the request is approved in the "Request Decision" stage, the process moves to the "Complete Management Procedures" action. Once these procedures are completed, the process ends.
+
+The actions are divided among three groups: Employee, Supervisor, and HR. The "Submit Vacation Request" and "Review Rejection Reasons" actions are performed by the Employee. The "Review Vacation Request" and "Approve/Reject Request" actions are performed by the Supervisor. The "Complete Management Procedures" action is performed by HR.

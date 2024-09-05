@@ -1,0 +1,3 @@
+The process begins with a "start" event. The first step in this case is for the guest to make a call. The next action taken is by the manager who takes down the order. Following this, the manager submits an order ticket to the kitchen and then gives the same order to the sommelier. In the subsequent step, the manager assigns the order to the waiter. Parallel events occur when the kitchen and the sommelier are doing their tasks alongside the waiter readying the cart.
+
+Subsequently, the actions converge when the waiter delivers the cart, after which, the waiter returns to the room service station. An exclusive decision is made here, where the waiter may wait to do the billing or directly debit the guest account. Eventually, all paths lead to the end event.

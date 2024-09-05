@@ -1,0 +1,3 @@
+The process begins with the "Submit Vacation Request" activity. After that, the process moves to the "Review and Approve Request" activity. Depending on the decision made in the "Request Decision", the process may either move to the "Review Rejection Reasons" activity or the "Complete Management Procedures" activity. The process ends after either one of these activities is completed.
+
+In terms of roles, the "Employee" is responsible for the "Submit Vacation Request" and "Review Rejection Reasons" activities. The "Supervisor" is responsible for the "Review and Approve Request" activity. Lastly, the "HR Representative" is responsible for the "Complete Management Procedures" activity. All these activities take place within the "Organization".

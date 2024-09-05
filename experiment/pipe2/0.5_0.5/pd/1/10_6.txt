@@ -1,0 +1,5 @@
+The process begins with the "Start" event. The first task is "MSPN sends dismissal", which is performed in the "MSPN Lane" of the "MSPN" pool. After this task, a message is sent to the "MSPO Lane" of the "MSPO" pool for the next task - "MSPO reviews dismissal". 
+
+Once the review is completed, a decision needs to be made - "Decision to reject or confirm". This decision leads to one of two tasks: "MSPO rejects dismissal" or "MSPO confirms dismissal". Regardless of which task is performed, the process ends with the "End" event. 
+
+All tasks, decisions, and events in the "MSPO" pool are performed in the "MSPO Lane". Similarly, all tasks in the "MSPN" pool are performed in the "MSPN Lane". The process flows from the "Start" event to the "End" event, with tasks and decisions made along the way.

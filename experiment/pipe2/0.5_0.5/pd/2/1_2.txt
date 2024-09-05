@@ -1,0 +1,3 @@
+The process begins with "Check Defect and Calculate Repair Cost" followed by a decision point called "Customer Decision". From here, two paths can be taken. One path leads to "Check and Repair Hardware" and the other to "Check and Configure Software". Both paths converge at "Test System Functionality". 
+
+After testing the system functionality, the process reaches another decision point, "Error Detection". If an error is detected, the process leads to "Repair Activity" and then loops back to "Test System Functionality". If no error is detected, the process ends.

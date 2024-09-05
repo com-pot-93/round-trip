@@ -4,6 +4,19 @@ from mermaid.graph import Graph
 import os
 import json
 
+
+""" check if all keys were generated """
+def add_keys(model):
+    req_keys = ["tasks","events","gateways","pools","sequenceFlows","messageFlows"]
+    keys = list(model.keys())
+    for k in req_keys:
+        if k not in keys:
+            print(k)
+            print("------------add key function was used")
+            model[k] = []
+    return model
+
+
 """ clean model after generation """
 def clean_model(gen):
     first = gen.find('{')
@@ -11,6 +24,7 @@ def clean_model(gen):
     json_str = gen[first:last]
     try:
         json_obj = json.loads(json_str)
+        json_obj = add_keys(json_obj)
     except json.JSONDecodeError as e:
         json_obj = {"error":"Not a valid json"}
     return json_obj

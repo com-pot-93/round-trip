@@ -1,0 +1,1 @@
+The process begins with "MPON sends the dismissal". After this, "MPOO reviews the dismissal". Depending on the review, there are two possible paths. In one path, "MPOO opposes the dismissal". In the other path, "MPOO confirms the dismissal". Both paths converge at a point and the process ends.

@@ -3,6 +3,7 @@ from src.t2m.create_model import generate_model, generate_json_model
 from src.model_info.get_information import extract_mermaid_tasks, validate_mermaid, validate_custom_format, clean_model
 from src.m2t.create_description import generate_description, generate_description_from_json
 from src.merson.merson_converter import mermaid_to_json,json_to_mermaid
+from src.general import create_directory, check_metric
 from text_evaluation.text_similarity import get_cosine, sts_bert, get_kpis
 import sys
 sys.path.append("model_evaluation")
@@ -15,29 +16,14 @@ import re
 import csv
 import pandas as pd
 
-#=================functions================
-def create_directory(directory):
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-def add_keys(model):
-    req_keys = ["tasks","events","gateways","pools","sequenceFlows","messageFlows"]
-    keys = list(model.keys())
-    for k in req_keys:
-        if k not in keys:
-            print(k)
-            print("------------add key function was used")
-            model[k] = []
-    return model
-
 # set default values
 processor = BPMNProcessor()
 llm = "gpt-4"
 orig_models = "data/pet/ground_json"
 orig_desc = "data/pet/process_descriptions"
-main_directory = "experiment"
-temp1 = 0.5     #temp1 > temp2
-temp2 = 0.5
+main_directory = "experiment/pipe2"
+temp1 = 1     #temp1 > temp2
+temp2 = 0
 temp = "{}_{}".format(temp1,temp2)
 sub_dir1 = os.path.join(temp,"pd")
 sub_dir2 = os.path.join(temp,"pm")
@@ -56,11 +42,27 @@ for i in range(1,iterations+1):
     gen_desc =  os.path.join(main_directory,sub_dir1,str(i))
     gen_mods =  os.path.join(main_directory,sub_dir2,str(i))
 
+    # generate models from process descriptions
+    print("Generate process models:")
+    set_parameter("temperature",temp1)
+    create_directory(gen_mods)
+    for path, folders, files in os.walk(orig_desc):
+         for file_name in files:
+             print("-------{}-------".format(file_name))
+             f = os.path.join(path, file_name)
+             gen = open(f,'r').read()
+             new_model = generate_json_model(llm,gen)
+             clean_json = clean_model(new_model)
+             number = file_name.split(".")[0]
+             new_file = os.path.join(gen_mods, "{}.json".format(number))
+             with open(new_file, 'w') as f:
+                 json.dump(clean_json, f, indent=4)
+
     # generate process descriptions from process descriptions
     print("Generate process descriptions:")
-    set_parameter("temperature",temp1)
+    set_parameter("temperature",temp2)
     create_directory(gen_desc)
-    for path, folders, files in os.walk(orig_models):
+    for path, folders, files in os.walk(gen_mods):
         for file_name in files:
             print("-------{}-------".format(file_name))
             f = os.path.join(path, file_name)
@@ -74,22 +76,7 @@ for i in range(1,iterations+1):
             with open(new_file, "w") as text_file:
                 text_file.write(description)
 
-    # generate models from generated process models
-    print("Generate process models:")
-    set_parameter("temperature",temp2)
-    create_directory(gen_mods)
-    for path, folders, files in os.walk(gen_desc):
-         for file_name in files:
-             print("-------{}-------".format(file_name))
-             f = os.path.join(path, file_name)
-             gen = open(f,'r').read()
-             new_model = generate_json_model(llm,gen)
-             clean_json = clean_model(new_model)
-             full_json = add_keys(clean_json)
-             number = file_name.split(".")[0]
-             new_file = os.path.join(gen_mods, "{}.json".format(number))
-             with open(new_file, 'w') as f:
-                 json.dump(full_json, f, indent=4)
+
 
 
 #compare
@@ -124,11 +111,10 @@ for i in range(1,4):
             f = os.path.join(path, file_name)
             with open(f, "r") as infile:
                 gen = json.load(infile)
-                # gen = add_keys(gen)
                 gen = json.dumps(gen)
-            sim = bpmn_similarity.calculate_similarity_scores(json.loads(orig), json.loads(gen))
-            recall = bpmn_similarity.calculate_similarity_scores(json.loads(orig), json.loads(gen), method="recall")
-            precision = bpmn_similarity.calculate_similarity_scores(json.loads(orig), json.loads(gen), method="precision")
+            sim = check_metric(bpmn_similarity.calculate_similarity_scores,json.loads(orig), json.loads(gen))
+            recall = check_metric(bpmn_similarity.calculate_similarity_scores,json.loads(orig), json.loads(gen), method="recall")
+            precision = check_metric(bpmn_similarity.calculate_similarity_scores,json.loads(orig), json.loads(gen), method="precision")
             result = {'round':i,'example': file_name, 'similarity': sim[1], 'recall': recall[1], 'precision': precision[1]}
             output2.append(result)
 

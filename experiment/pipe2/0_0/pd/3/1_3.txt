@@ -1,0 +1,5 @@
+The process begins with "Take order". After that, the order is submitted to the kitchen. Once the kitchen receives the order, it is then given to the sommelier. The sommelier then assigns the order to the waiter. The waiter prepares the cart and delivers the order. After the order is delivered, the account is debited. This marks the end of the process. 
+
+In terms of roles, the "Manager" is responsible for taking the order, submitting the order to the kitchen, giving the order to the sommelier, and assigning the order to the waiter. The "Waiter" is responsible for preparing the cart, delivering the order, and debiting the account. 
+
+This process is part of the "Room Service" pool.

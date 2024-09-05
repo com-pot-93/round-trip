@@ -1,0 +1,7 @@
+The process begins with the "start" event. The first activity is the registration of a claim by a claims officer. This step is then followed by an examination of the claim by the Claims Officer. Once the examination is over, it leads to a gateway.
+
+The process then moves to the next activity where the Claims Officer writes a settlement recommendation. This recommendation is next checked by a Senior Claims Officer. Upon checking the recommendation, the Senior Claims Officer marks the claim. This sequence advances the process to the second gateway in the process flow.
+
+Beyond the second gateway, the process might take two parallel routes. On one path, the claim handling process proceeds further, which eventually reaches the "end" event. On the other path, it is looped back to the Senior Claims Officer who sends the recommendation back, which is later referred back to the first gateway.  
+
+This process loop continues- Claims Officer writes a settlement recommendation, The Senior Claims Officer checks the recommendation and marks the claim, then either the process gets further or if not, the recommendation is sent back. This loop continues until the claim handling process eventually proceeds towards the end.

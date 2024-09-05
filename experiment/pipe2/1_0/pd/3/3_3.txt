@@ -1,0 +1,5 @@
+The process begins with "Claim Registration". After the claim is registered, it is then examined in the "Examine Claim" step. Following the examination, a "Write Settlement Recommendation" is made. This recommendation is then checked in the "Check Recommendation" step. 
+
+After the recommendation has been checked, it goes through a decision point named "Claim OK or Not OK". If the claim is OK, it proceeds to the "Handle Claim" step. If the claim is not OK, it goes back to the "Write Settlement Recommendation" step. 
+
+The process ends after the claim has been handled.

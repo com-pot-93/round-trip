@@ -1,0 +1,1 @@
+The process begins with the action "INQ transmits the transaction data request". This is followed by the IP checking the request, and then, the IP proceeds to answer the question. The process concludes when it reaches its end-stage.

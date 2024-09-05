@@ -1,0 +1,1 @@
+The process begins with the MSPN sending a dismissal to the MSPO. After the dismissal has been sent, the MSPO reviews it. Following the review, the MSPO makes a decision. This decision can result in two outcomes. The MSPO can either reject the dismissal of the MSPN or confirm it. Regardless of the decision made, the process ends after the MSPO has made their decision.

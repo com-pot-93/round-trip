@@ -1,0 +1,5 @@
+The process begins with the "Examine Claim" activity. Once this is completed, the process moves on to the "Write Settlement Recommendation" activity. After the recommendation is written, it is then checked in the "Check Recommendation" activity. 
+
+Following this, the process reaches a decision point, "Claim OK or Not OK". If the claim is not OK, the process loops back to the "Write Settlement Recommendation" activity. If the claim is OK, the process proceeds to the "Handle Claim" activity. 
+
+Finally, after the claim is handled, the process ends.

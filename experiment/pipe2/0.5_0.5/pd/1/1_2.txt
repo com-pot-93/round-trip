@@ -1,0 +1,7 @@
+The process begins with the "Check defect and calculate repair cost" operation. From there, the process moves to a decision point referred to as "Customer decision". Depending on the decision made, the process can either proceed to "Hardware repair" or "Software configuration". 
+
+Both "Hardware repair" and "Software configuration" operations lead to "System functionality test". After the system functionality test, another decision point called "System functionality check" is encountered. 
+
+If the system functionality is deemed satisfactory, the process ends. However, if the system functionality check determines that more work is needed, the process can loop back to either "Hardware repair" or "Software configuration". This cycle continues until the system functionality is deemed satisfactory at the "System functionality check", at which point the process ends. 
+
+All these operations and decision points are within the domain of "CRS".

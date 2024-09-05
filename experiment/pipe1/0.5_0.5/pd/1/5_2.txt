@@ -1,0 +1,5 @@
+The process begins with the "start" event and quickly proceeds to the first task where the employee submits a vacation request. Once this is accomplished, the process moves forward to the task of registering the requirement. Following this, the supervisor receives the request.
+
+The following task is another action undertaken by the supervisor - the approval of the request. After this task has been completed, two paths in the process emerge originating from the fifth element. One path leads to a task where a return application is generated, the other leads to a task of generating notifications.
+
+Following the return application, the process merges back into the seventh element and follows a flow towards the "end" event. However, before it reaches there, there is another task - completing the respective management procedures by HR. The task of generating notifications also routes back to this path where HR takes over. The convergence of these parallel paths completes the last task and then finally reaches the "end" event to terminate the process.

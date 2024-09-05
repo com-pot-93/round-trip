@@ -1,0 +1,5 @@
+The process begins with the "Submit vacation request" step, which is carried out by the Employee. Once the request has been submitted, it moves to the "Supervisor reviews request" step, which is handled by the Supervisor. 
+
+Following the review, the Supervisor makes a decision. If the request is rejected, it goes back to the Employee for "Employee reviews rejection reasons". The Employee can then resubmit the request, and it goes back to the Supervisor for review and decision again.
+
+If the Supervisor approves the request, the process moves to "HR completes management procedures", which is carried out by the HR department. Once HR has completed the necessary procedures, the process comes to an end.
