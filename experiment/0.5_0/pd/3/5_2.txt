@@ -1,0 +1,7 @@
+The process begins with the "start" event. The first action taken is the "employee submits vacation request". After this, the "register the requirement" action is performed. The next step is the "supervisor receives the request". Following this, the "supervisor approves the request". 
+
+At this point, the process reaches a decision point. One path leads to the "return application" action, while the other leads to the "generate notification" action. If the "return application" path is taken, the process moves to another decision point. From here, the process either ends or moves to the "HR completes the respective management procedures" action. 
+
+If the "generate notification" path is taken, the process moves directly to the "HR completes the respective management procedures" action. After this action, the process moves to the same decision point as the "return application" path. From here, the process either ends or moves back to the "HR completes the respective management procedures" action. 
+
+Finally, the process ends with the "end" event.

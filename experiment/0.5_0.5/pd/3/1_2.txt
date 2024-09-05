@@ -1,0 +1,5 @@
+The process begins with the "customer brings defective computer". Afterwards, "the crs checks the defect". Following this, "the crs hands out repair cost calculation". Depending on various conditions, two different tasks may be executed simultaneously: "check the hardware" and "checks the software". 
+
+If the hardware was checked, then "repair the hardware" is performed, On the other hand, if the software was checked, "configures the software" would be the next step. Both "repair the hardware" and "configures the software" eventually lead to "test system functionality". 
+
+Based on the result of the system functionality test, a decision is made whether to state that "repair is finished" or to revisit prior steps like "check the hardware" or "checks the software". When the repair is completed, this also results in "customer takes computer home". Finally, the process ends.

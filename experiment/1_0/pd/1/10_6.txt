@@ -1,0 +1,1 @@
+The process begins with "MSPN sends dismissal". After this, "MSPO reviews the dismissal". Following the review, there are two possible outcomes. One possibility is that "MSPO rejects the dismissal", and the other is that "MSPO confirms the dismissal". The process ends after either of these outcomes.

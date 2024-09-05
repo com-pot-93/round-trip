@@ -1,0 +1,179 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Customer brings the defective computer",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "CRS checks the defect",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "Provide a repair cost calculation to the customer",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Issue goes for further checking",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "Check Hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task6",
+            "name": "Repair Hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task7",
+            "name": "Check Software",
+            "type": "Service"
+        },
+        {
+            "id": "task8",
+            "name": "Configure Software",
+            "type": "Service"
+        },
+        {
+            "id": "task9",
+            "name": "Test system functionality",
+            "type": "Service"
+        },
+        {
+            "id": "task10",
+            "name": "Repair declared finished",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Decision Point: Take home or further checking",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Decision Point: Hardware or Software checking",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "Computer Repair Shop",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Repair center",
+                    "elemRefs": [
+                        "task1",
+                        "task2",
+                        "task3",
+                        "task4",
+                        "task5",
+                        "task6",
+                        "task7",
+                        "task8",
+                        "task9",
+                        "task10",
+                        "event1",
+                        "event2",
+                        "gateway1",
+                        "gateway2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway2",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task5",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "gateway2",
+            "targetRef": "task7"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "task7",
+            "targetRef": "task8"
+        },
+        {
+            "id": "flow11",
+            "sourceRef": "task6",
+            "targetRef": "task9"
+        },
+        {
+            "id": "flow12",
+            "sourceRef": "task8",
+            "targetRef": "task9"
+        },
+        {
+            "id": "flow13",
+            "sourceRef": "task9",
+            "targetRef": "task10"
+        },
+        {
+            "id": "flow14",
+            "sourceRef": "task10",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": []
+}

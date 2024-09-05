@@ -1,0 +1,102 @@
+{
+    "tasks": [
+        {
+            "id": "task_register_claim",
+            "name": "Register a claim",
+            "type": "User"
+        },
+        {
+            "id": "task_examine_claim",
+            "name": "Examine the claim",
+            "type": "User"
+        },
+        {
+            "id": "task_write_recommendation",
+            "name": "Write a settlement recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task_check_recommendation",
+            "name": "Check the recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task_mark_claim",
+            "name": "Mark the claim",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "start_event",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end_event",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "First gateway",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Second gateway",
+            "type": "Parallel"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start_event",
+            "targetRef": "task_register_claim"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task_register_claim",
+            "targetRef": "task_examine_claim"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task_examine_claim",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task_write_recommendation"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task_write_recommendation",
+            "targetRef": "task_check_recommendation"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task_check_recommendation",
+            "targetRef": "task_mark_claim"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task_mark_claim",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway2",
+            "targetRef": "end_event"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "gateway2",
+            "targetRef": "task_write_recommendation"
+        }
+    ],
+    "messageFlows": []
+}

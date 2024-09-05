@@ -20,16 +20,6 @@ def create_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-def add_keys(model):
-    req_keys = ["tasks","events","gateways","pools","sequenceFlows","messageFlows"]
-    keys = list(model.keys())
-    for k in req_keys:
-        if k not in keys:
-            print(k)
-            print("------------add key function was used")
-            model[k] = []
-    return model
-
 # set default values
 processor = BPMNProcessor()
 llm = "gpt-4"
@@ -37,29 +27,27 @@ orig_models = "data/pet/ground_json"
 orig_desc = "data/pet/process_descriptions"
 main_directory = "experiment"
 temp1 = 0.5     #temp1 > temp2
-temp2 = 0.5
+temp2 = 0
 temp = "{}_{}".format(temp1,temp2)
-sub_dir1 = os.path.join(temp,"pd")
-sub_dir2 = os.path.join(temp,"pm")
+sub_dir1 = os.path.join(temp,"pm")
+sub_dir2 = os.path.join(temp,"pd")
 output1 = []
 output2 = []
 excel_name = "evaluation.xlsx"
-excel_file = os.path.join(main_directory,temp,excel_name)
-iterations = 3
+excel_file = os.path.join(temp,excel_name)
 
 # create directories if not exist
 create_directory(main_directory)
 
-# generate
-for i in range(1,iterations+1):
-    print("-------{}-------".format(i))
+# generate process descriptions from process models
+for i in range(1,4):
     gen_desc =  os.path.join(main_directory,sub_dir1,str(i))
     gen_mods =  os.path.join(main_directory,sub_dir2,str(i))
 
-    # generate process descriptions from process descriptions
-    print("Generate process descriptions:")
     set_parameter("temperature",temp1)
     create_directory(gen_desc)
+
+    # generate process descriptions from process models
     for path, folders, files in os.walk(orig_models):
         for file_name in files:
             print("-------{}-------".format(file_name))
@@ -68,41 +56,14 @@ for i in range(1,iterations+1):
             model = json.load(pet_json)
             model = json.dumps(model)
             description = generate_description_from_json(llm,model)
-            print(description)
             number = file_name.split(".")[0]
             new_file = os.path.join(gen_desc, "{}.txt".format(number))
             with open(new_file, "w") as text_file:
                 text_file.write(description)
 
-    # generate models from generated process models
-    print("Generate process models:")
-    set_parameter("temperature",temp2)
-    create_directory(gen_mods)
-    for path, folders, files in os.walk(gen_desc):
-         for file_name in files:
-             print("-------{}-------".format(file_name))
-             f = os.path.join(path, file_name)
-             gen = open(f,'r').read()
-             new_model = generate_json_model(llm,gen)
-             clean_json = clean_model(new_model)
-             full_json = add_keys(clean_json)
-             number = file_name.split(".")[0]
-             new_file = os.path.join(gen_mods, "{}.json".format(number))
-             with open(new_file, 'w') as f:
-                 json.dump(full_json, f, indent=4)
-
-
-#compare
-for i in range(1,4):
-    print("----------{}----------".format(i))
-    gen_desc =  os.path.join(main_directory,sub_dir1,str(i))
-    gen_mods =  os.path.join(main_directory,sub_dir2,str(i))
-
     # compare original process description with generated process description
-    print("Comapare process descriptions:")
     for path, folders, files in os.walk(gen_desc):
         for file_name in files:
-            print("-------{}--------".format(file_name))
             orig_path = os.path.join(orig_desc, file_name)
             orig = open(orig_path,'r').read()
             f = os.path.join(path, file_name)
@@ -112,11 +73,24 @@ for i in range(1,4):
             result = {'round':i,'example': file_name, 'similarity': sim, 'recall': kpis[0], 'precision': kpis[1]}
             output1.append(result)
 
+    # generate models from generated process desciptions
+    set_parameter("temperature",temp2)
+    create_directory(gen_mods)
+    for path, folders, files in os.walk(gen_desc):
+         for file_name in files:
+             f = os.path.join(path, file_name)
+             gen = open(f,'r').read()
+             new_model = generate_json_model(llm,gen)
+             clean_json = clean_model(new_model)
+             number = file_name.split(".")[0]
+             new_file = os.path.join(gen_mods, "{}.json".format(number))
+             with open(new_file, 'w') as f:
+                 json.dump(clean_json, f, indent=4)
+
     # compare original process model with the generated one
-    print("Compare process models:")
     for path, folders, files in os.walk(gen_mods):
         for file_name in files:
-            print("-------{}--------".format(file_name))
+            print("-------{}------------------------------".format(file_name))
             orig_path = os.path.join(orig_models, file_name)
             with open(orig_path, "r") as infile:
                 orig = json.load(infile)
@@ -124,7 +98,6 @@ for i in range(1,4):
             f = os.path.join(path, file_name)
             with open(f, "r") as infile:
                 gen = json.load(infile)
-                # gen = add_keys(gen)
                 gen = json.dumps(gen)
             sim = bpmn_similarity.calculate_similarity_scores(json.loads(orig), json.loads(gen))
             recall = bpmn_similarity.calculate_similarity_scores(json.loads(orig), json.loads(gen), method="recall")

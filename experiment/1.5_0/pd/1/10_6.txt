@@ -1,0 +1,5 @@
+The process begins with the event "start". Following this, the task "MSPN sends dismissal" is carried out. After this, the task "MSPO reviews the dismissal" is performed. 
+
+The process then reaches a decision point. Depending on the outcome, one of two paths is followed. If the dismissal is rejected, the task "MSPO rejects the dismissal" is performed. If the dismissal is confirmed, the task "MSPO confirms the dismissal" is carried out. 
+
+After either of these tasks, the process reaches another decision point. Regardless of the path taken, the process ends with the event "end".

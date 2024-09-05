@@ -1,0 +1,9 @@
+The process begins with the "start" event. The first task in the sequence is the "employee submits vacation request". This is followed by the task, "register the requirement". 
+
+Once the requirement is registered, it immediately progresses to the phase where "supervisor receives the request". In the subsequent task, the "supervisor approves the request". 
+
+Afterwards, there is a decision to be made, which could lead to the need for a "return application", or it can skip to directly "generate notification". If the decision led to the 'return application' task, it then resumes the process by completing the "HR completes the respective management procedures" task before meeting the decision to "generate notification". 
+
+Finally, all paths ultimately lead to the "end" event. 
+
+Overall, the workflow describes a procedure where an employee submits a vacation request, which is subsequently registered, received by the supervisor, and made approval-decisions upon that could result in a returned application or a generated notification, then followed by typical actions carried out by the Human Resources department.

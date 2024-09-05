@@ -1,0 +1,92 @@
+{
+    "tasks": [
+        {
+            "id": "Task_01",
+            "name": "MPON sends the dismissal",
+            "type": "Service"
+        },
+        {
+            "id": "Task_02",
+            "name": "MPOO reviews the dismissal",
+            "type": "Service"
+        },
+        {
+            "id": "Task_03",
+            "name": "MPOO opposes the dismissal",
+            "type": "Manual"
+        },
+        {
+            "id": "Task_04",
+            "name": "MPOO confirms the dismissal",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "Event_01",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "Event_02",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "Gateway_01",
+            "name": "Decision after review by MPOO",
+            "type": "Exclusive"
+        },
+        {
+            "id": "Gateway_02",
+            "name": "Decision after MPOO opposition or confirmation",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "SequenceFlow_01",
+            "sourceRef": "Event_01",
+            "targetRef": "Task_01"
+        },
+        {
+            "id": "SequenceFlow_02",
+            "sourceRef": "Task_01",
+            "targetRef": "Task_02"
+        },
+        {
+            "id": "SequenceFlow_03",
+            "sourceRef": "Task_02",
+            "targetRef": "Gateway_01"
+        },
+        {
+            "id": "SequenceFlow_04",
+            "sourceRef": "Gateway_01",
+            "targetRef": "Task_03"
+        },
+        {
+            "id": "SequenceFlow_05",
+            "sourceRef": "Gateway_01",
+            "targetRef": "Task_04"
+        },
+        {
+            "id": "SequenceFlow_06",
+            "sourceRef": "Task_03",
+            "targetRef": "Gateway_02"
+        },
+        {
+            "id": "SequenceFlow_07",
+            "sourceRef": "Task_04",
+            "targetRef": "Gateway_02"
+        },
+        {
+            "id": "SequenceFlow_08",
+            "sourceRef": "Gateway_02",
+            "targetRef": "Event_02"
+        }
+    ],
+    "messageFlows": []
+}
