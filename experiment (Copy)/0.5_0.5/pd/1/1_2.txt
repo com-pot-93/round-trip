@@ -1,9 +1,0 @@
-The process begins when the customer brings the defective computer. After this, the Customer Relation Specialist (CRS) checks the defect. Once the CRS finds the problem, they then provide a repair cost calculation to the customer.
-
-The process then diverges at two point: it can take one of two directions. Either the customer takes the computer home or the issue goes for further checking. If it goes for further checking, the issue is again checked at two levels, hardware and software.
-
-If there is a need to check hardware, the problem is inspected more in-depth. If the hardware is found to be defective, the hardware is repaired. Similarly, for software, the software is checked and, if there is an issue, the software is then configured.
-
-Upon completing these steps, whether that involved hardware repairs or software configuration, the process funnels to 'Test system functionality'. Once functionality has been ensured, the repair is declared finished.
-
-Finally, the process ends, signifying that all procedures have concluded for that particular customer/computer.

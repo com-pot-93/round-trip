@@ -1,3 +1,0 @@
-The process begins with "MSPN sends dismissal". 
-Following that, "MSPO reviews the dismissal". After reviewing, the process leads to a decision point with two potential outcomes. 
-One of the alternatives is for "MSPO rejects the dismissal", and the other option is for "MSPO confirms the dismissal". In the case of ‘MSPO rejecting the dismissal’, the process again moves towards a second decision point before reaching the end. When "MSPO confirms the dismissal", it also directs towards the second decision before concluding. Ultimately, this process ends after the second decision is made.

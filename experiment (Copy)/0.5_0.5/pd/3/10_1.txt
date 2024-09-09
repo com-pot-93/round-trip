@@ -1,7 +1,0 @@
-The process begins with MPON sending the dismissal. After this step, MPOO reviews the dismissal. There is a decision to be made where two separate paths can be taken. 
-
-In the first scenario, MPOO opposes the dismissal. Following the opposition, another decision is made.
-
-Alternatively on the second path, MPOO can choose to confirm the dismissal. After this step, in both paths, a decision point is reached.
-
-Lastly, regardless of the taken path in previous decision point, the process ends.

@@ -1,1 +1,0 @@
-The process begins with "MSPN sends dismissal". After this, "MSPO reviews the dismissal". Following the review, there are two possible paths. In one path, "MSPO rejects the dismissal". In the other path, "MSPO confirms the dismissal". Both paths converge at the same point before the process ends.

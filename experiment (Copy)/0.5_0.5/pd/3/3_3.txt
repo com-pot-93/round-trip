@@ -1,5 +1,0 @@
-The process begins with the 'claims officer registers claim'. Following that, the 'claims officer examines claim'. 
-
-After examining the claim, it reaches a decision point. If the decision is to proceed, 'claims officer writes settlement recommendation', 'senior claims officer checks recommendation', and then 'senior claims officer marks the claim'. 
-
-This leads to another decision point. If the decision is to proceed, 'the claim handling process proceeds' and the process ends. If it is decided to send the recommendation back, 'senior claims officer sends recommendation back' and it returns to the decision after the claim's examination.

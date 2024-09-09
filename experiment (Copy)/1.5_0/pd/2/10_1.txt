@@ -1,9 +1,0 @@
-The process begins with the event "start". Following this, the task "MPON sends the dismissal" is performed. After this, the task "MPOO reviews the dismissal" is carried out. 
-
-The process then reaches a decision point. Depending on the outcome, one of two paths is followed. 
-
-In the first path, the task "MPOO opposes the dismissal" is performed. After this, the process reaches another decision point. 
-
-In the second path, the task "MPOO confirms the dismissal" is performed. This also leads to the second decision point. 
-
-Regardless of the path taken, the process ends with the event "end".

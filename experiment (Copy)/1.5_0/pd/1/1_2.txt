@@ -1,7 +1,0 @@
-The process begins with the customer bringing a defective computer. The CRS then checks the defect. Following this, the CRS hands out a repair cost calculation. At this point, there are two possible paths. 
-
-In the first path, the customer takes the computer home. In the second path, the process moves to an exclusive decision point where either the hardware is checked or the software is checked. If the hardware is checked, it is then repaired. If the software is checked, it is then configured. 
-
-After either the hardware is repaired or the software is configured, the system functionality is tested. This leads to another exclusive decision point. If the repair is finished, the process ends. If not, the process loops back to the decision point where either the hardware or software is checked and repaired or configured respectively. 
-
-Finally, once the repair is finished, the process ends.

@@ -1,5 +1,0 @@
-The process begins with the event "start". The first task is "guest calls", followed by "manager takes down the order". The manager then "submits an order ticket to kitchen" and "gives an order to the sommelier". After that, the "manager assigns the order to the waiter". 
-
-At this point, the process splits into two parallel paths. In one path, "the kitchen and the sommelier are doing their tasks". In the other path, "the waiter readies cart". These two paths converge again before the "waiter delivers the cart". 
-
-After delivering the cart, the "waiter returns to the room service station". Here, the process splits again into two exclusive paths. In one path, the "waiter may wait to do the billing". In the other path, the "waiter debits the guest account". These two paths converge again before the process ends with the event "end".

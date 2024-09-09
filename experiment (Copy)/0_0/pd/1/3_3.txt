@@ -1,7 +1,0 @@
-The process begins with the "start" event. The first task is for the claims officer to register the claim. After the claim is registered, the claims officer examines the claim. Following the examination, there is a decision point. 
-
-If the claim is approved, the claims officer writes a settlement recommendation. This recommendation is then checked by a senior claims officer. After the check, the senior claims officer marks the claim. Another decision point follows this task. 
-
-If the claim is marked for further processing, the claim handling process proceeds and the process ends with the "end" event. If the claim is not marked for further processing, the senior claims officer sends the recommendation back. This leads back to the previous decision point where the claims officer writes a settlement recommendation. 
-
-This process continues until the claim is either marked for further processing and the process ends, or the recommendation is sent back and the process repeats.

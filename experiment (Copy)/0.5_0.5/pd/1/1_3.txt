@@ -1,3 +1,0 @@
-The process begins with a guest making a call, after which the manager takes down the order. The manager then submits an order ticket to the kitchen, gives an order to the sommelier, and assigns the order to the waiter. Then, the kitchen and the sommelier start to do their tasks. Afterwards, the waiter readies the cart.
-
-At this point, two activities occur in parallel - the waiter delivers the cart and then returns to the room service station, while also waiting to do the billing if necessary. These activities are dependent on one another and both must be completed in order for the process to continue. Once these tasks are done, the waiter debits the guest account marking the end of the process.

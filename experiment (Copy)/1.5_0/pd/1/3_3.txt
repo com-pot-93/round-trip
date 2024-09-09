@@ -1,7 +1,0 @@
-The process begins with the "start" event. The first action taken is by the claims officer who registers the claim. After the claim is registered, the claims officer then examines the claim. Following the examination, there is an exclusive decision point.
-
-Depending on the outcome of this decision, the process can take two paths. One path leads to the claims officer writing a settlement recommendation. This recommendation is then checked by the senior claims officer. After checking the recommendation, the senior claims officer marks the claim. This leads to another exclusive decision point.
-
-From this decision point, the process can again take two paths. One path leads to the claim handling process proceeding. This path ends with the "end" event. The other path leads to the senior claims officer sending the recommendation back. This path loops back to the first exclusive decision point.
-
-The process ends when the claim handling process proceeds to the "end" event.
