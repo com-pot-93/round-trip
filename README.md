@@ -1,6 +1,8 @@
 # round-trip
 Info: Pipeline (m2t,t2m) for roundtriping with LLMs
 
+![Pipelines](images/pipelines.svg)
+
 <h1> Data Sets [data/] </h1>
 
 [Pet Data Set](https://huggingface.co/datasets/patriziobellan/PET) </br>
