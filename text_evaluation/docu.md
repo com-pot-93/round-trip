@@ -32,6 +32,6 @@ To calculate precsion and recall following steps are done:
 8. Recall = number of all sentences in text1 / number of aligned sentences (al1)
 9. Precision = number of all sentences in text2 / number of  aligned sentences (al2)
 
-
+![Text Comparison](../images/recall-precision.svg)
 
 
