@@ -5,6 +5,7 @@ import pandas as pd
 import re
 import numpy as np
 
+
 model = SentenceTransformer('sentence-transformers/stsb-mpnet-base-v2')
 
 """ this function returns the cosine similarity betweeen 2 documents using TF-IDF """
@@ -30,88 +31,152 @@ def sts_bert(t1,t2):
         score = 0
     return score
 
-""" this function splits plain text into array of sentences """
-def split_into_sentences(paragraph):
-    sentence_endings = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s'
-    sentences = re.split(sentence_endings, paragraph)
-    return sentences
+# """ this function splits plain text into array of sentences """
+# def split_into_sentences(paragraph):
+#     sentence_endings = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s'
+#     sentences = re.split(sentence_endings, paragraph)
+#     return sentences
 
-""" this function splits string into array of sentences and removes spaces/new lines """
-def split_and_clean(text):
-    clean_sentences = []
-    sentences = split_into_sentences(text)
-    for s in sentences:
-        if s != "" and s!="\n":
-            if len(s) > 1:
-                clean_sentences.append(s)
-    return clean_sentences
+# """ this function splits string into array of sentences and removes spaces/new lines """
+# def split_and_clean(text):
+#     clean_sentences = []
+#     sentences = split_into_sentences(text)
+#     for s in sentences:
+#         if s != "" and s!="\n":
+#             if len(s) > 1:
+#                 clean_sentences.append(s)
+#     return clean_sentences
 
-""" this function genertes similarity matrix betweeen two arrays of sentences: list1 - original, list2 - generated """
-""" sim_type : cos or bert """
-def create_matrix(list1,list2,sim_type):
-    final = []
-    for l in list1:
-        row = []
-        for ll in list2:
-            if sim_type == "cos":
-                val = get_cosine(l,ll)
-            else:
-                val = sts_bert(l,ll)
-            row.append(val)
-        final.append(row)
-    new = pd.DataFrame(final)
-    return new
+# """ this function genertes similarity matrix betweeen two arrays of sentences: list1 - original, list2 - generated """
+# """ sim_type : cos or bert """
+# def create_matrix(list1,list2,sim_type):
+#     final = []
+#     for l in list1:
+#         row = []
+#         for ll in list2:
+#             if sim_type == "cos":
+#                 val = get_cosine(l,ll)
+#             else:
+#                 val = sts_bert(l,ll)
+#             row.append(val)
+#         final.append(row)
+#     new = pd.DataFrame(final)
+#     return new
 
-""" this function returns only matrix values greater than threshold and their indexes """
-def find_match(matrix,thold):
-    new_matrix = matrix.drop(columns=[col for col in matrix if (matrix[col] <= thold).all()])
-    clean_matrix = new_matrix.drop(index=[index for index, row in new_matrix.iterrows() if (row <= thold).all()])
-    over_thold = clean_matrix.idxmax()
-    return over_thold
+# """ this function returns only matrix values greater than threshold and their indexes """
+# def find_match(matrix,thold):
+#     new_matrix = matrix.drop(columns=[col for col in matrix if (matrix[col] <= thold).all()])
+#     clean_matrix = new_matrix.drop(index=[index for index, row in new_matrix.iterrows() if (row <= thold).all()])
+#     over_thold = clean_matrix.idxmax()
+#     return over_thold
 
-""" this function calculates recall """
-def find_recall(matrix,thold):
-    try:
-        shape = matrix.shape
-        # get the number of sentences in original text
-        all_orig = shape[0]
-        matches = find_match(matrix,thold)
-        columns = list(matches)
-        # get number of sentences in original text that are also present in generated text
-        match_orig = len(list(dict.fromkeys(columns)))
-        recall = round(match_orig/all_orig,2)
-    except:
-        recall = 0
-    return recall
+# """ this function calculates recall """
+# def find_recall(matrix,thold):
+#     try:
+#         shape = matrix.shape
+#         # get the number of sentences in original text
+#         all_orig = shape[0]
+#         matches = find_match(matrix,thold)
+#         columns = list(matches)
+#         # get number of sentences in original text that are also present in generated text
+#         match_orig = len(list(dict.fromkeys(columns)))
+#         recall = round(match_orig/all_orig,2)
+#     except:
+#         recall = 0
+#     return recall
 
-""" this function calculates precision """
-def find_precision(matrix,thold):
-    try:
-        shape = matrix.shape
-        all_gen = shape[1]
-        matches = find_match(matrix,thold)
-        indexes = list(matches.index)
-        match_gen = len(list(dict.fromkeys(indexes)))
-        precision = round(match_gen/all_gen,2)
-    except:
-        precision = 0
-    return precision
+# """ this function calculates precision """
+# def find_precision(matrix,thold):
+#     try:
+#         shape = matrix.shape
+#         all_gen = shape[1]
+#         matches = find_match(matrix,thold)
+#         indexes = list(matches.index)
+#         match_gen = len(list(dict.fromkeys(indexes)))
+#         precision = round(match_gen/all_gen,2)
+#     except:
+#         precision = 0
+#     return precision
 
-""" this function takes two texts as input and return precision and recall: text1 - original, text2 - generated """
-def get_kpis(text1,text2,sim_type="cos"):
-    list1 = split_and_clean(text1)
-    list2 = split_and_clean(text2)
-    matrix = create_matrix(list1,list2,sim_type)
-    if sim_type == "cos":
-        thold = 0.2
-    else:
-        thold = 0.5
-    recall = find_recall(matrix,thold)
-    precision = find_precision(matrix,thold)
-    return recall, precision
+# """ this function takes two texts as input and return precision and recall: text1 - original, text2 - generated """
+# def get_kpis(text1,text2,sim_type="cos"):
+#     list1 = split_and_clean(text1)
+#     list2 = split_and_clean(text2)
+#     matrix = create_matrix(list1,list2,sim_type)
+#     if sim_type == "cos":
+#         thold = 0.2
+#     else:
+#         thold = 0.5
+#     recall = find_recall(matrix,thold)
+#     precision = find_precision(matrix,thold)
+#     return recall, precision
 
 
+import nltk
+from nltk.metrics import edit_distance
 
+# nltk.download("punkt_tab")
+
+
+def get_sentences(text_1):
+    """
+    tekoneizes text in sentences
+    """
+    return nltk.sent_tokenize(text_1)
+
+
+def sequence_similarity(sentences_1, sentences_2):
+    """
+    Calculate a sequence similarity based on normalized edit distance on sentences
+    """
+
+    return 1 - (edit_distance(sentences_1, sentences_2) / max(len(sentences_1), len(sentences_2)))
+
+
+def align_sentences(text1_sentences, text2_sentences, threshold=0.75):
+    """
+    Given two lists of sentences, adjusts list2 based on similarity to list1.
+
+    Args:
+        sentences_1 (list): List of sentences.
+        sentences_2 (list): List of sentences.
+
+    Returns:
+        list: Adjusted second list of sentences.
+
+    """
+    # Adjust text2 sentences
+    adjusted_text2_sentences = text2_sentences[:]
+
+    for sentence_1 in text1_sentences:
+        best_similarity = 0
+        best_index = -1
+        for j, sentence_2 in enumerate(text2_sentences):
+            similarity = sts_bert(sentence_1, sentence_2)  # Use the custom similarity function
+            if similarity > best_similarity:
+                best_similarity = similarity
+                best_index = j
+        if best_similarity >= threshold:
+            adjusted_text2_sentences[best_index] = sentence_1
+
+    return adjusted_text2_sentences
+
+
+def calculate_precision_recall(groundt, generated):
+    """
+    Calculate precision and recall based on set similarity of aligned sentences.
+
+    Args:
+        ground_truth (list): List of sentences from the ground truth.
+        generated (list): List of sentences from the generated text.
+
+    Returns:
+        tuple: (precision, recall)
+    """
+    intersection = set(groundt).intersection(set(generated))
+    precision = len(intersection) / len(generated) if generated else 0
+    recall = len(intersection) / len(groundt) if groundt else 0
+    return precision, recall
 
 
 
