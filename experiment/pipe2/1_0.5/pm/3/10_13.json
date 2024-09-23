@@ -1,0 +1,109 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "INQ transmits the transaction data request",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "IP checks the request",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "IP answers the question",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Check request outcome",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "INQ",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "INQ Lane",
+                    "elemRefs": [
+                        "task1",
+                        "event1"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "pool2",
+            "name": "IP",
+            "lanes": [
+                {
+                    "id": "lane2",
+                    "name": "IP Lane",
+                    "elemRefs": [
+                        "task2",
+                        "task3",
+                        "gateway1",
+                        "event2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task3",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "msg1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "msg2",
+            "sourceRef": "task3",
+            "targetRef": "task1"
+        }
+    ]
+}

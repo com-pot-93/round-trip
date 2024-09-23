@@ -1,0 +1,92 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Claim registration",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Examination by claims officer",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Writing settlement recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "Checking by senior claims officer",
+            "type": "User"
+        },
+        {
+            "id": "task5",
+            "name": "Claim handling process",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "startEvent1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "endEvent1",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Claim OK or Not OK",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "startEvent1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task4",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "gateway1",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task5",
+            "targetRef": "endEvent1"
+        }
+    ],
+    "messageFlows": []
+}

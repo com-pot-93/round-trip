@@ -1,0 +1,7 @@
+The process begins with the "Check defect and calculate repair cost" activity. Once this is completed, it moves to the "Customer decision" point. Here, the "Customer decides on repair" activity takes place. Following the customer's decision, the "Check and repair hardware" activity is performed. 
+
+After the hardware has been checked and repaired, the process moves to the "Check and configure software" activity. Once the software has been checked and configured, the "Test system functionality" activity is carried out. 
+
+The process then reaches another decision point, the "System functionality test". If the system functionality test is successful, the "Execute arbitrary repair activity" is performed. The process ends after this activity is completed. 
+
+All these activities are part of the "Repair process" lane in the "CRS" pool.

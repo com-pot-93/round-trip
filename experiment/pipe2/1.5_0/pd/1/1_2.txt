@@ -1,0 +1,5 @@
+The process begins with "Check defect and calculate repair cost". After this, a decision is made based on the "Customer decision on repair cost". Depending on the decision, the process can either move to "Hardware check and repair" or "Software check and configuration". Both these paths eventually lead to "System functionality test". 
+
+After the system functionality test, another decision is made based on the "System functionality test result". If the test is successful, the process ends. If not, the process can loop back to either "Hardware check and repair" or "Software check and configuration" for further checks and repairs. 
+
+The process involves two main entities: the "Customer" and "CRS". The customer is involved in the initial defect check and repair cost calculation, and the decision on the repair cost. The CRS is responsible for the hardware check, repair, software check, configuration, and system functionality test, as well as the decision based on the test result.

@@ -1,0 +1,120 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "MSPN sends a dismissal to the MSPO",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "MSPO reviews the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "MSPO rejects the dismissal of the MSPN",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "MSPO confirms the dismissal of the MSPN",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "startEvent1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "endEvent1",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "MSPO decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "MSPN",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "MSPN Lane",
+                    "elemRefs": [
+                        "task1",
+                        "startEvent1"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "pool2",
+            "name": "MSPO",
+            "lanes": [
+                {
+                    "id": "lane2",
+                    "name": "MSPO Lane",
+                    "elemRefs": [
+                        "task2",
+                        "task3",
+                        "task4",
+                        "gateway1",
+                        "endEvent1"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "seqFlow1",
+            "sourceRef": "startEvent1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "seqFlow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "seqFlow3",
+            "sourceRef": "task2",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "seqFlow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "seqFlow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "seqFlow6",
+            "sourceRef": "task3",
+            "targetRef": "endEvent1"
+        },
+        {
+            "id": "seqFlow7",
+            "sourceRef": "task4",
+            "targetRef": "endEvent1"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "msgFlow1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        }
+    ]
+}

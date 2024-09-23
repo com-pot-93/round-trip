@@ -1,0 +1,9 @@
+The process begins with the customer bringing a defective computer. Next, the Customer Relationship Specialist (CRS) checks the defect. After identifying the defect, the CRS hands out a repair cost calculation. From here, the process can take two paths. 
+
+In one path, the customer takes the computer home. The process then ends. 
+
+In the other path, there are two simultaneous activities. One involves checking the hardware and repairing it. The other involves checking the software and configuring it. 
+
+Once both hardware and software checks and repairs are complete, the system functionality is tested. If the test is successful, the repair is declared finished and the process ends. If the test is not successful, the process loops back to checking and repairing hardware and software. 
+
+In both paths, the process concludes with the end event.

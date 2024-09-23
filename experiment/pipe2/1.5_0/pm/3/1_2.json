@@ -1,0 +1,133 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Check defect and calculate repair cost",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "Check and repair hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "Check and configure software",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Test system functionality",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "start",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Customer decision on repair cost",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "System functionality test result",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "Customer",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Customer interaction",
+                    "elemRefs": [
+                        "task1",
+                        "gateway1"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "pool2",
+            "name": "CRS",
+            "lanes": [
+                {
+                    "id": "lane2",
+                    "name": "Repair activities",
+                    "elemRefs": [
+                        "task2",
+                        "task3",
+                        "task4",
+                        "gateway2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "gateway1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task2",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway2",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "gateway2",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "gateway2",
+            "targetRef": "task3"
+        }
+    ],
+    "messageFlows": []
+}

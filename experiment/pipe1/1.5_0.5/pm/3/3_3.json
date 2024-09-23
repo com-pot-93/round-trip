@@ -1,0 +1,123 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Register Claim",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Examine Claim",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Write Settlement Recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "Check Recommendation",
+            "type": "User"
+        },
+        {
+            "id": "task5",
+            "name": "Mark Claim",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "First Decision Point",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Second Decision Point",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "Claims Officer",
+            "Lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Lane 1",
+                    "elemRefs": [
+                        "task1",
+                        "task2",
+                        "task3",
+                        "gateway1"
+                    ]
+                },
+                {
+                    "id": "lane2",
+                    "name": "Lane 2",
+                    "elemRefs": [
+                        "task4",
+                        "task5",
+                        "gateway2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway2",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task5",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": []
+}

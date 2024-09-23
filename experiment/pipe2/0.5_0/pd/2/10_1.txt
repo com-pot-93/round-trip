@@ -1,0 +1,7 @@
+The process begins with "MPON sents the dismissal to the MPOO". Following this, "MPOO reviews the dismissal". After the review, a decision is made at the point "Decision to oppose or confirm dismissal". Based on this decision, one of two actions is taken: either "MPOO opposes the dismissal of MPON" or "MPOO confirms the dismissal of MPON". The process ends after either of these actions is taken. 
+
+The process involves two main entities: MPON and MPOO. MPOO's actions are further divided into two parts, namely "Review Dismissal" and "Oppose or Confirm Dismissal". The dismissal review and decision-making are part of the "Review Dismissal" phase, while the actions of opposing or confirming the dismissal fall under the "Oppose or Confirm Dismissal" phase. 
+
+There are various flows of actions in this process. The dismissal sent by MPON to MPOO triggers the review of the dismissal. The outcome of the review leads to the decision of whether to oppose or confirm the dismissal. This decision then leads to the execution of the respective action, which finally leads to the end of the process. 
+
+Additionally, there is a message flow from the task of MPON sending the dismissal to the task of MPOO reviewing the dismissal.

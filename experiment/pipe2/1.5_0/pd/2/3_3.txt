@@ -1,0 +1,5 @@
+The process begins with the "Claim Registration". After the claim is registered, it moves on to the "Examine Claim" stage. Once the claim has been examined, a "Settlement Recommendation" is written. This recommendation is then checked in the "Check Recommendation" stage. 
+
+After the recommendation has been checked, the process reaches a decision point, "Claim OK or Not OK". If the claim is OK, the process moves on to the "Handle Claim" stage. If the claim is not OK, the process loops back to the "Examine Claim" stage. 
+
+Once the claim has been handled, the process ends. This is a cyclical process where a claim can be examined multiple times until it is deemed OK and can be handled.

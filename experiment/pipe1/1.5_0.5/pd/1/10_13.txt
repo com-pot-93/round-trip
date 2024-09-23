@@ -1,0 +1,1 @@
+The process begins with the event "start". Following this, the task "INQ transmits the transaction data request" is executed. After this task, "IP checks the request" is performed. Once this task is completed, "IP answers the question" is the next task. The process concludes with the event "end".

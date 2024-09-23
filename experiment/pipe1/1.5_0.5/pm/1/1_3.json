@@ -1,0 +1,147 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Guest makes a call",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Manager takes down the order",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Manager submits an order ticket to the kitchen and gives an order to the sommelier",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Manager assigns the order to the waiter",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "Kitchen and sommelier start doing their tasks",
+            "type": "Parallel"
+        },
+        {
+            "id": "task6",
+            "name": "Waiter readies the cart",
+            "type": "User"
+        },
+        {
+            "id": "task7",
+            "name": "Waiter delivers the cart",
+            "type": "Service"
+        },
+        {
+            "id": "task8",
+            "name": "Waiter returns to the room service station",
+            "type": "User"
+        },
+        {
+            "id": "task9",
+            "name": "Waiter waits to do the billing",
+            "type": "User"
+        },
+        {
+            "id": "task10",
+            "name": "Waiter debits the guest account directly",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "event1",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "event2",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Waiter makes decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "sf1",
+            "sourceRef": "event1",
+            "targetRef": "task1"
+        },
+        {
+            "id": "sf2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "sf3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "sf4",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "sf5",
+            "sourceRef": "task4",
+            "targetRef": "task5"
+        },
+        {
+            "id": "sf6",
+            "sourceRef": "task4",
+            "targetRef": "task6"
+        },
+        {
+            "id": "sf7",
+            "sourceRef": "task5",
+            "targetRef": "task7"
+        },
+        {
+            "id": "sf8",
+            "sourceRef": "task6",
+            "targetRef": "task7"
+        },
+        {
+            "id": "sf9",
+            "sourceRef": "task7",
+            "targetRef": "task8"
+        },
+        {
+            "id": "sf10",
+            "sourceRef": "task8",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "sf11",
+            "sourceRef": "gateway1",
+            "targetRef": "task9"
+        },
+        {
+            "id": "sf12",
+            "sourceRef": "gateway1",
+            "targetRef": "task10"
+        },
+        {
+            "id": "sf13",
+            "sourceRef": "task9",
+            "targetRef": "event2"
+        },
+        {
+            "id": "sf14",
+            "sourceRef": "task10",
+            "targetRef": "event2"
+        }
+    ],
+    "messageFlows": []
+}

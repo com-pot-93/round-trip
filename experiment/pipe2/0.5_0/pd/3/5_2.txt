@@ -1,0 +1,5 @@
+The process begins with the "Start" event, which leads to the "Submit Vacation Request" task. This task is performed by an individual in the "Employee" pool. Once the vacation request is submitted, the process moves to the "Approve or Reject Request" task, which is handled by a "Supervisor". 
+
+After the supervisor makes a decision, the process diverges at the "Approve or Reject" decision point. If the request is rejected, the process proceeds to the "Review Rejection Reasons" task, again handled by the employee. If the request is approved, the process moves to the "Complete Management Procedures" task, which is performed by "HR". 
+
+Regardless of the path taken, the process eventually converges to the "End" event, signifying the completion of the process. The sequence of tasks and decision points is dictated by the defined sequence flows, which guide the process from start to finish. The process does not include any message flows.

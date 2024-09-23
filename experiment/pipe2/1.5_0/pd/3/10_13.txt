@@ -1,0 +1,5 @@
+The process begins with the "start" event in the "INQ" pool, specifically in the "INQ Lane". This triggers "INQ transmits the transaction data request". Once this is completed, the process moves to the "IP" pool, specifically the "IP Lane", where "IP checks the request". 
+
+After the request has been checked, the process moves to "Check request outcome". Depending on the outcome of this check, the process may either end or continue to "IP answers the question". If the question is answered, the process ends with the "end" event. 
+
+Throughout this process, there are two message flows. The first is from "INQ transmits the transaction data request" to "IP checks the request", and the second is from "IP checks the request" to "IP answers the question".

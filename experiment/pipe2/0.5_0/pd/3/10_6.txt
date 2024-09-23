@@ -1,0 +1,5 @@
+The process begins with the MSPN sending a dismissal to the MSPO. After receiving the dismissal, the MSPO reviews it. Following the review, a decision is made at the Dismissal review decision point. There are two possible outcomes. 
+
+The first outcome is that the MSPO rejects the dismissal of the MSPN, and the process ends. The second outcome is that the MSPO confirms the dismissal of the MSPN, which also leads to the end of the process. 
+
+The entire process falls within the MSPN's 'Dismissal process' lane. The process starts with the 'start' event and ends with the 'end' event. No messages are exchanged during the process.

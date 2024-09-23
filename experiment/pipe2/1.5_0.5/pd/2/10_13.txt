@@ -1,0 +1,7 @@
+The process begins with the event "start". Following this, the task "INQ transmits the transaction data request" is carried out. The output of this task is then sent to "IP checks the request". After this task has been completed, the outcome of the examination is determined. Depending on the outcome, the task "IP answers the question" is performed. The process concludes with the event "end". 
+
+The tasks are divided into two pools: INQ and IP. The INQ pool contains the task "INQ transmits the transaction data request" and the starting event. The IP pool includes the tasks "IP checks the request", "IP answers the question", the outcome of the examination, and the ending event.
+
+The sequence of the process is as follows: "start" -> "INQ transmits the transaction data request" -> "IP checks the request" -> "Outcome of the examination" -> "IP answers the question" -> "end". 
+
+In addition, there are message flows between "INQ transmits the transaction data request" and "IP checks the request", and between "IP answers the question" and "INQ transmits the transaction data request".

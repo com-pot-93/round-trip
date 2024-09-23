@@ -1,0 +1,7 @@
+The process begins with the event "start". The first task is "customer brings defective computer". After this, the task "the crs checks the defect" is performed. Following this, the task "the crs hands out repair cost calculation" takes place.
+
+Next, there are two possible paths. In the first path, the task "customer takes computer home" is performed. In the second path, two tasks are performed in parallel: "check the hardware" and "checks the software". If the hardware is checked, the task "repair the hardware" is performed. If the software is checked, the task "configures the software" is performed.
+
+After these tasks, the process converges and the task "test system functionality" is performed. Following this, there are two possible paths. In the first path, the task "repair is finished" is performed. In the second path, the process returns to a previous point where two tasks are performed in parallel: "check the hardware" and "checks the software".
+
+Finally, the process ends with the event "end".

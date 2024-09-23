@@ -1,0 +1,5 @@
+The process begins with the customer bringing a defective computer. The CRS then checks the defect. Following this, the CRS hands out a repair cost calculation. Depending on the outcome, the customer may take the computer home or the process may proceed to further checks. 
+
+If the process continues, there are two parallel paths. In the first path, the hardware is checked and then repaired. In the second path, the software is checked and then configured. After both paths are completed, the system functionality is tested. 
+
+Depending on the results of the system functionality test, the process may loop back to further checks or proceed to the final stage where the repair is finished. After the repair is finished, the process ends.

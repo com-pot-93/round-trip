@@ -1,0 +1,7 @@
+The process begins with the employee submitting a vacation request. This request is then registered. The supervisor receives the request and approves it. After the approval, there are two possible paths. 
+
+In the first path, the application is returned. After the return, the process moves to the next step where HR completes the respective management procedures. 
+
+In the second path, a notification is generated. After the notification, the process also moves to the step where HR completes the respective management procedures. 
+
+Finally, the process ends.

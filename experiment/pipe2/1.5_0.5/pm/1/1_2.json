@@ -1,0 +1,123 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Check Defect and Calculate Repair Cost",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "Check and Repair Hardware",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "Check and Configure Software",
+            "type": "Service"
+        },
+        {
+            "id": "task4",
+            "name": "Test System Functionality",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "startEvent",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "endEvent",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Customer Decision",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Error Detection",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "CRS",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Repair Process",
+                    "elemRefs": [
+                        "task1",
+                        "task2",
+                        "task3",
+                        "task4",
+                        "startEvent",
+                        "endEvent",
+                        "gateway1",
+                        "gateway2"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "startEvent",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "gateway1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "task2",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway2",
+            "targetRef": "endEvent"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "gateway2",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "gateway2",
+            "targetRef": "task3"
+        }
+    ],
+    "messageFlows": []
+}

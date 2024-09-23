@@ -1,0 +1,3 @@
+The process starts with "Check defect and calculate repair cost". After this step, a decision is made at the "Customer decision". Depending on the decision, the process moves to either "Hardware repair" or "Software check and configuration". Both of these steps lead to "System functionality test". 
+
+Once the system functionality test is done, a check is performed at "System functionality check". If the system functionality check fails, the process moves to "Additional repair" and then goes back to "System functionality test". If the system functionality check passes, the process ends.

@@ -1,0 +1,9 @@
+The process begins with the "Start" event, which leads to the "Submit Vacation Request" task, performed by an employee. Once the vacation request is submitted, it moves to the "Review Request" task, which is handled by a supervisor. 
+
+After the request has been reviewed, it proceeds to the "Approve or Reject Request" task, also performed by a supervisor. Following this task, the process reaches the "Request Approved or Rejected" decision point.
+
+If the request is rejected, the process moves to the "Review Rejection Reasons" task, which is again handled by the employee who initially submitted the request. After reviewing the rejection reasons, the process ends.
+
+If the request is approved, it proceeds to the "Complete Management Procedures" task, which is handled by the HR department. Once the management procedures are completed, the process also ends. 
+
+This process involves three roles: the Employee, the Supervisor, and HR. The Employee is responsible for submitting the vacation request and reviewing any rejection reasons. The Supervisor reviews and approves or rejects the request. If the request is approved, HR is responsible for completing the management procedures.

@@ -1,0 +1,7 @@
+The process begins with "INQ" transmitting the transaction data request. After this, "IP" checks the request. Depending on the outcome of the request check, which is determined at the "Check request outcome" point, "IP" then answers the question. The process concludes at the "end" point. 
+
+The process is divided into two main sections or "pools". The first pool, "INQ", contains the initial transmission of the transaction data request and the start of the process. The second pool, "IP", contains the checking of the request, the answering of the question, the decision point for the request outcome, and the end of the process. 
+
+The flow of the process is as follows: it starts, then "INQ" transmits the transaction data request, "IP" checks the request, the outcome of the request is determined, "IP" answers the question, and finally, the process ends. 
+
+There are also two message flows in the process. The first is from "INQ" transmitting the transaction data request to "IP" checking the request. The second is from "IP" checking the request to "IP" answering the question.

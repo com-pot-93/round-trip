@@ -1,0 +1,5 @@
+The process begins with the "start" event, which leads to the "Register claim" activity. Upon completion of the "Register claim" activity, the process proceeds to the "Examine claim" activity. Subsequently, the "Write settlement recommendation" activity is performed. 
+
+Once the recommendation is written, it is then checked in the "Check recommendation" activity. Depending on the outcome of the "Claim OK or Not OK" decision point, the process either moves to the "Handle claim" activity or goes back to the "Write settlement recommendation" activity. 
+
+If the claim is handled, the process ends with the "end" event. If the claim is not OK, the process loops back to rewrite the settlement recommendation. This loop continues until the claim is OK, at which point the claim is handled and the process ends.

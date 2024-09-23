@@ -1,0 +1,7 @@
+The process begins with the "Check defect and calculate repair cost" activity. Once that is completed, a decision is made based on "Is cost acceptable?". If the cost is not acceptable, the process ends. If the cost is acceptable, the process moves to "Check and repair hardware". 
+
+After the hardware is checked and repaired, there are two possible paths. One path is to "Check and configure software" and then to "Test system functionality". The other path is directly to "Test system functionality". 
+
+Once the system functionality is tested, another decision is made based on "Is system functioning?". If the system is functioning, the process ends. If the system is not functioning, the process moves to "Execute arbitrary repair activity". 
+
+After executing the arbitrary repair activity, the system functionality is tested again. This loop between "Execute arbitrary repair activity" and "Test system functionality" continues until the system is functioning, at which point the process ends.

@@ -1,0 +1,5 @@
+The process begins with the "start" event. Following this, "INQ transmits the transaction data request". This task is performed in the "INQ Lane" within the "INQ" pool. Once this task is completed, a message is sent to "IP checks the request". This task is performed in the "IP Lane" within the "IP" pool. 
+
+After the request has been checked, the process moves to "Check outcome of the examination". Depending on the outcome of this check, the process may proceed to "IP answers the question". Once this task is completed, a message is sent back to "INQ transmits the transaction data request". 
+
+Finally, the process ends with the "end" event. This entire sequence of tasks, checks, and messages is represented by a series of flows, which dictate the order in which the tasks are performed and the messages are sent.

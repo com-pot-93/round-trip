@@ -1,0 +1,7 @@
+The process begins with the "start" event and proceeds to the "claims officer registers claim" task. After this, the process moves to the "claims officer examines claim" task. Following this, the process reaches a decision point.
+
+From this decision point, one path leads to the "claims officer writes settlement recommendation" task. After this task, the process moves to the "senior claims officer checks recommendation" task and then to the "senior claims officer marks the claim" task. Following this, the process reaches another decision point.
+
+From this second decision point, two paths are possible. One path leads to the "the claim handling process proceeds" task and then to the "end" event. The other path leads to the "senior claims officer sends recommendation back" task, which then loops back to the first decision point.
+
+The other path from the first decision point also leads to the "senior claims officer sends recommendation back" task, forming a loop. This provides a mechanism for the process to iterate as necessary before reaching the "end" event.

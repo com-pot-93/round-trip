@@ -1,0 +1,7 @@
+The process begins with the "start" event. The first task is for the claims officer to register the claim. After the claim is registered, the claims officer examines the claim. Following the examination, there is an exclusive decision point. 
+
+If the process proceeds in one direction, the claims officer writes a settlement recommendation. This recommendation is then checked by a senior claims officer. After checking the recommendation, the senior claims officer marks the claim. This leads to another exclusive decision point. 
+
+From this point, the process can proceed in two directions. In one direction, the claim handling process proceeds, leading to the "end" event. In the other direction, the senior claims officer sends the recommendation back, which leads back to the first exclusive decision point. 
+
+This process continues until the claim handling process proceeds to the "end" event.

@@ -1,0 +1,7 @@
+The process begins with the "start" event. The first task is for the employee to submit a vacation request. Once this is done, the requirement is registered. The supervisor then receives the request and approves it. After the approval, there are two possible paths. 
+
+In the first path, the application is returned. After this, the process moves to the next stage where HR completes the respective management procedures. 
+
+In the second path, a notification is generated. This is followed by HR completing the respective management procedures. 
+
+Both paths converge at the same point and the process ends with the "end" event.

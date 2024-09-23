@@ -1,0 +1,5 @@
+The process begins at "The Evanstonian" in the "Room Service" lane. The first step is to "Take down order". Once the order is taken, the next step is to "Submit order ticket to kitchen". After the order ticket is submitted to the kitchen, the order is then given to the sommelier in the "Give order to sommelier" step. 
+
+Once the sommelier has the order, it is then assigned to a waiter in the "Assign order to waiter" step. After the order has been assigned to a waiter, the next step is to "Prepare cart". Once the cart is prepared, the order is then delivered in the "Deliver order" step. 
+
+After the order has been delivered, the final step is to "Debit guest's account". Once the guest's account has been debited, the process ends.

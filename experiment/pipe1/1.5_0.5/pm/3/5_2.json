@@ -1,0 +1,117 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Employee submits vacation request",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Register request",
+            "type": "Service"
+        },
+        {
+            "id": "task3",
+            "name": "Supervisor approves request",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "Return application",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "HR completes management procedures",
+            "type": "User"
+        },
+        {
+            "id": "task6",
+            "name": "Generate notification",
+            "type": "Service"
+        }
+    ],
+    "events": [
+        {
+            "id": "start",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Decision after supervisor approval",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "Decision after returning application",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "gateway2",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "gateway2",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow9",
+            "sourceRef": "task5",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow10",
+            "sourceRef": "gateway1",
+            "targetRef": "task6"
+        },
+        {
+            "id": "flow11",
+            "sourceRef": "task6",
+            "targetRef": "task5"
+        }
+    ],
+    "messageFlows": []
+}

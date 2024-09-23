@@ -1,0 +1,107 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Check defect and calculate repair cost",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "Hardware repair",
+            "type": "Manual"
+        },
+        {
+            "id": "task3",
+            "name": "Software check and configuration",
+            "type": "Manual"
+        },
+        {
+            "id": "task4",
+            "name": "System functionality test",
+            "type": "Service"
+        },
+        {
+            "id": "task5",
+            "name": "Additional repair",
+            "type": "Manual"
+        }
+    ],
+    "events": [
+        {
+            "id": "start_event",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end_event",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Customer decision",
+            "type": "Exclusive"
+        },
+        {
+            "id": "gateway2",
+            "name": "System functionality check",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [],
+    "sequenceFlows": [
+        {
+            "id": "seq1",
+            "sourceRef": "start_event",
+            "targetRef": "task1"
+        },
+        {
+            "id": "seq2",
+            "sourceRef": "task1",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "seq3",
+            "sourceRef": "gateway1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "seq4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "seq5",
+            "sourceRef": "task2",
+            "targetRef": "task4"
+        },
+        {
+            "id": "seq6",
+            "sourceRef": "task3",
+            "targetRef": "task4"
+        },
+        {
+            "id": "seq7",
+            "sourceRef": "task4",
+            "targetRef": "gateway2"
+        },
+        {
+            "id": "seq8",
+            "sourceRef": "gateway2",
+            "targetRef": "task5"
+        },
+        {
+            "id": "seq9",
+            "sourceRef": "task5",
+            "targetRef": "task4"
+        },
+        {
+            "id": "seq10",
+            "sourceRef": "gateway2",
+            "targetRef": "end_event"
+        }
+    ],
+    "messageFlows": []
+}

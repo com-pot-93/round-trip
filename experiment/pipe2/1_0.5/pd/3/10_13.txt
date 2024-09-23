@@ -1,0 +1,7 @@
+The process begins with "INQ transmits the transaction data request". After this, "IP checks the request". Depending on the outcome of the check, which is determined at "Check request outcome", "IP answers the question". The process ends after this step. 
+
+The process involves two main entities, INQ and IP. INQ is responsible for transmitting the transaction data request, while IP is responsible for checking the request and answering the question. 
+
+The flow of the process is as follows: it starts with INQ transmitting the transaction data request, then IP checks the request. Depending on the outcome of the check, IP answers the question and the process ends. 
+
+There are also message flows between the tasks. The first message flow is from "INQ transmits the transaction data request" to "IP checks the request". The second message flow is from "IP answers the question" back to "INQ transmits the transaction data request".

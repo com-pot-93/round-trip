@@ -1,0 +1,120 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "MSPN sends a dismissal to the MSPO",
+            "type": "Service"
+        },
+        {
+            "id": "task2",
+            "name": "MSPO reviews the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "MSPO rejects the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "MSPO confirms the dismissal",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "start",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "decision",
+            "name": "MSPO Decision",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "MSPN",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "MSPN Lane",
+                    "elemRefs": [
+                        "task1",
+                        "start"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "pool2",
+            "name": "MSPO",
+            "lanes": [
+                {
+                    "id": "lane2",
+                    "name": "MSPO Lane",
+                    "elemRefs": [
+                        "task2",
+                        "task3",
+                        "task4",
+                        "decision",
+                        "end"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "decision"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "decision",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "decision",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task3",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task4",
+            "targetRef": "end"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "msg1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        }
+    ]
+}

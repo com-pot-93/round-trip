@@ -1,0 +1,122 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "Submit Vacation Request",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "Review Request",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "Approve/Reject Request",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "Review Rejection Reasons",
+            "type": "User"
+        },
+        {
+            "id": "task5",
+            "name": "Complete Management Procedures",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "start",
+            "name": "Start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end",
+            "name": "End",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Request Approved/Rejected",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "Organization",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Employee",
+                    "elemRefs": [
+                        "task1",
+                        "task4"
+                    ]
+                },
+                {
+                    "id": "lane2",
+                    "name": "Supervisor",
+                    "elemRefs": [
+                        "task2",
+                        "task3"
+                    ]
+                },
+                {
+                    "id": "lane3",
+                    "name": "HR Representative",
+                    "elemRefs": [
+                        "task5"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "task3",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "gateway1",
+            "targetRef": "task5"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task4",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow8",
+            "sourceRef": "task5",
+            "targetRef": "end"
+        }
+    ],
+    "messageFlows": []
+}

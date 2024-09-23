@@ -1,0 +1,109 @@
+{
+    "tasks": [
+        {
+            "id": "task1",
+            "name": "MPON sends the dismissal to the MPOO",
+            "type": "User"
+        },
+        {
+            "id": "task2",
+            "name": "MPOO reviews the dismissal",
+            "type": "User"
+        },
+        {
+            "id": "task3",
+            "name": "MPOO opposes the dismissal of MPON",
+            "type": "User"
+        },
+        {
+            "id": "task4",
+            "name": "MPOO confirms the dismissal of MPON",
+            "type": "User"
+        }
+    ],
+    "events": [
+        {
+            "id": "start",
+            "name": "start",
+            "type": "StartNoneEvent"
+        },
+        {
+            "id": "end",
+            "name": "end",
+            "type": "EndNoneEvent"
+        }
+    ],
+    "gateways": [
+        {
+            "id": "gateway1",
+            "name": "Decision to oppose or confirm",
+            "type": "Exclusive"
+        }
+    ],
+    "pools": [
+        {
+            "id": "pool1",
+            "name": "MPON"
+        },
+        {
+            "id": "pool2",
+            "name": "MPOO",
+            "lanes": [
+                {
+                    "id": "lane1",
+                    "name": "Dismissal review",
+                    "elemRefs": [
+                        "task2",
+                        "gateway1",
+                        "task3",
+                        "task4"
+                    ]
+                }
+            ]
+        }
+    ],
+    "sequenceFlows": [
+        {
+            "id": "flow1",
+            "sourceRef": "start",
+            "targetRef": "task1"
+        },
+        {
+            "id": "flow2",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        },
+        {
+            "id": "flow3",
+            "sourceRef": "task2",
+            "targetRef": "gateway1"
+        },
+        {
+            "id": "flow4",
+            "sourceRef": "gateway1",
+            "targetRef": "task3"
+        },
+        {
+            "id": "flow5",
+            "sourceRef": "gateway1",
+            "targetRef": "task4"
+        },
+        {
+            "id": "flow6",
+            "sourceRef": "task3",
+            "targetRef": "end"
+        },
+        {
+            "id": "flow7",
+            "sourceRef": "task4",
+            "targetRef": "end"
+        }
+    ],
+    "messageFlows": [
+        {
+            "id": "msg1",
+            "sourceRef": "task1",
+            "targetRef": "task2"
+        }
+    ]
+}

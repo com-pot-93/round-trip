@@ -1,0 +1,5 @@
+The process begins with the "Check defect and calculate repair cost" activity. Once this is completed, the process moves to the "Customer decision on repair cost" decision point. Depending on the decision made, the process can either move to the "Check and repair hardware" activity or the "Check and configure software" activity. 
+
+Both of these activities lead to the "Test system functionality" activity. After testing the system functionality, the process reaches another decision point, "System functionality test result". Depending on the result, the process can either end, or loop back to the "Check and repair hardware" or "Check and configure software" activities for further repairs or configurations. 
+
+The process involves two main entities: the Customer and CRS. The Customer is involved in the initial defect check and repair cost calculation, as well as making the decision on the repair cost. CRS, on the other hand, is responsible for the repair activities and testing the system functionality.

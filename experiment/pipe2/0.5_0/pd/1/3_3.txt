@@ -1,0 +1,7 @@
+The process begins with the "Examine Claim" step. Once the claim has been examined, the process moves to the "Write Settlement Recommendation" step. After the settlement recommendation has been written, it is then checked in the "Check Recommendation" step. 
+
+Following the recommendation check, the process reaches a decision point named "Claim OK or Not OK". If the claim is not OK, the process returns to the "Write Settlement Recommendation" step. If the claim is OK, the process proceeds to the "Handle Claim" step. 
+
+The process ends after the claim has been handled. 
+
+In terms of roles, the Claims Officer is responsible for examining the claim and writing the settlement recommendation. The Senior Claims Officer checks the recommendation. The Claim Handler handles the claim if it is deemed OK at the decision point. All these roles are part of the Claims Department.

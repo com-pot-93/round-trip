@@ -1,0 +1,5 @@
+The process begins with the "Check Defect and Calculate Repair Cost" activity. Once this is completed, it moves to a decision point named "Customer Decision". Based on the decision made, the process then proceeds to the "Customer Decision" activity. 
+
+Following this, the "Check and Repair Hardware" activity is carried out. Once the hardware has been checked and repaired, the process moves on to the "Check and Configure Software" activity. After the software has been checked and configured, a "System Functionality Test" is performed. 
+
+Once the system functionality test is done, another decision point named "System Functionality Test" is reached. Depending on the outcome of this decision, the process either ends or moves to the "Repair Activity". After the repair activity is completed, the process reaches its end.

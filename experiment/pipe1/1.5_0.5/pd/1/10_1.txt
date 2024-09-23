@@ -1,0 +1,7 @@
+The process begins with the event "start". Following this, the task "MPON sends the dismissal" takes place. After this, the task "MPOO reviews the dismissal" is carried out. Then, there is a decision point which leads to either the task "MPOO opposes the dismissal" or the task "MPOO confirmes the dismissal". 
+
+If the task "MPOO opposes the dismissal" is carried out, it leads to another decision point. From this point, the process either ends with the event "end" or goes back to the task "MPOO confirmes the dismissal". 
+
+If the task "MPOO confirmes the dismissal" is carried out, it also leads to the same decision point and the process either ends with the event "end" or goes back to the task "MPOO opposes the dismissal". 
+
+Hence, the process can loop between the tasks "MPOO opposes the dismissal" and "MPOO confirmes the dismissal" until it eventually ends with the event "end".
