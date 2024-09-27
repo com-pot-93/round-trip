@@ -1,4 +1,5 @@
-@Timmi:
-  - ask about xml - json converter
+tokenizer:
+sentences without spaces inbetween
 
-can pool be without lane?
+
+

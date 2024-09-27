@@ -22,7 +22,7 @@ orig_desc = "data/pet/process_descriptions"
 # path to the main direcroty where generated files should be saved
 main_directory = "experiment/pipe2"
 # temperature
-temp1 = 0.5     #temp1 > temp2
+temp1 = 0     #temp1 > temp2
 temp2 = 0
 # number of iterations in the pipeline
 iterations = 3
@@ -33,7 +33,7 @@ sub_dir1 = os.path.join(temp,"pd")
 sub_dir2 = os.path.join(temp,"pm")
 output1 = []
 output2 = []
-excel_name = "evaluation_99.xlsx"
+excel_name = "evaluation_test.xlsx"
 excel_file = os.path.join(main_directory,temp,excel_name)
 
 # compare generated artefacts with the original ones
