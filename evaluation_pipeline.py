@@ -23,7 +23,7 @@ orig_desc = "data/pet/process_descriptions"
 main_directory = "experiment/pipe2"
 # temperature
 temp1 = 0.5     #temp1 > temp2
-temp2 = 0
+temp2 = 0.5
 # number of iterations in the pipeline
 iterations = 3
 
