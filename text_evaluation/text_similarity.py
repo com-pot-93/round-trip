@@ -129,7 +129,6 @@ def sequence_similarity(sentences_1, sentences_2):
     """
     Calculate a sequence similarity based on normalized edit distance on sentences
     """
-
     return 1 - (edit_distance(sentences_1, sentences_2) / max(len(sentences_1), len(sentences_2)))
 
 
@@ -179,4 +178,10 @@ def calculate_precision_recall(groundt, generated):
     return precision, recall
 
 
+""" this function takes two texts as input and return precision and recall: text1 - original, text2 - generated """
+def get_simple_kpis(list1,list2):
+    matrix = create_matrix(list1,list2,"bert")
+    recall = find_recall(matrix,0.5)
+    precision = find_precision(matrix,0.5)
+    return recall, precision
 

@@ -1,6 +1,6 @@
 from src.llm_connect.ask_open_ai import ask_gpt
 from src.general import check_metric
-from text_evaluation.text_similarity import get_cosine, sts_bert, get_kpis
+from text_evaluation.text_similarity import get_cosine, sts_bert, split_and_clean, get_simple_kpis, align_sentences, calculate_precision_recall, sequence_similarity
 import sys
 sys.path.append("model_evaluation")
 sys.path.append("model_evaluation/evaluation")
@@ -11,6 +11,7 @@ import os
 import re
 import csv
 import pandas as pd
+from datetime import datetime
 
 # set default values
 processor = BPMNProcessor()
@@ -20,7 +21,7 @@ orig_models = "data/pet/ground_json"
 # path to the original process descriptions (txt)
 orig_desc = "data/pet/process_descriptions"
 # path to the main direcroty where generated files should be saved
-main_directory = "experiment/pipe2"
+main_directory = "experiment/pipe1"
 # temperature
 temp1 = 0     #temp1 > temp2
 temp2 = 0
@@ -33,7 +34,7 @@ sub_dir1 = os.path.join(temp,"pd")
 sub_dir2 = os.path.join(temp,"pm")
 output1 = []
 output2 = []
-excel_name = "evaluation_test.xlsx"
+excel_name = "evaluation_overall.xlsx"
 excel_file = os.path.join(main_directory,temp,excel_name)
 
 # compare generated artefacts with the original ones
@@ -52,8 +53,21 @@ for i in range(1,4):
             f = os.path.join(path, file_name)
             gen = open(f,'r').read()
             sim = sts_bert(orig,gen)
-            kpis = get_kpis(orig,gen,"bert")
-            result = {'round':i,'example': file_name, 'similarity': sim, 'recall': kpis[0], 'precision': kpis[1]}
+
+            # split into sentences
+            list1 = split_and_clean(orig)
+            list2 = split_and_clean(gen)
+            kpis = get_simple_kpis(list1,list2)
+
+            # sequence similarity
+            adjusted_list2 = align_sentences(list1, list2, threshold=0.8)
+            sequence_sim = sequence_similarity(list1, adjusted_list2)
+
+            # overall similarity
+            other_kpis = calculate_precision_recall(list1, adjusted_list2)
+            overall_sim = 0.5 * sim + 0.5 * sequence_sim
+
+            result = {'round':i,'example': file_name, 'similarity': sim, 'recall': kpis[0], 'precision': kpis[1], 'sequence_similarity': sequence_sim, 'recall2': other_kpis[1], 'precision2': other_kpis[0], 'overall_sim': overall_sim}
             output1.append(result)
 
     # compare original process model with the generated ones
