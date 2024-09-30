@@ -23,8 +23,8 @@ orig_desc = "data/pet/process_descriptions"
 # path to the main direcroty where generated files should be saved
 main_directory = "experiment/pipe1"
 # temperature
-temp1 = 0     #temp1 > temp2
-temp2 = 0
+temp1 = 1.5     #temp1 > temp2
+temp2 = 0.5
 # number of iterations in the pipeline
 iterations = 3
 
