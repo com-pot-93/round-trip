@@ -1,5 +1,8 @@
 tokenizer:
 sentences without spaces inbetween
 
+correlation:
+short overview: https://ishanjainoffical.medium.com/choosing-the-right-correlation-pearson-vs-spearman-vs-kendalls-tau-02dc7d7dd01d
+
 
 
