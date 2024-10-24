@@ -9,6 +9,11 @@ readme = "README.md"
 location = ".env"
 
 [[tool.poetry.source]]
+name = "sap"
+url = "https://common.repositories.cloud.sap/artifactory/api/pypi/deploy-releases-hyperspace-pypi/simple"
+priority = "primary"
+
+[[tool.poetry.source]]
 name = "PyPI"
 priority = "primary"
 
@@ -19,6 +24,8 @@ poetry-dotenv-plugin = "^0.2.0"
 ipykernel = "^6.29.5"
 nltk = "^3.9.1"
 matplotlib = "^3.9.2"
+generative-ai-hub-sdk = {extras = ["all"], version = "^3.1.1"}
+scipy = "^1.14.1"
 
 [tool.poetry.group.dev.dependencies]
 

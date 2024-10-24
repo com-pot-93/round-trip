@@ -160,6 +160,19 @@ def align_sentences(text1_sentences, text2_sentences, threshold=0.75):
 
     return adjusted_text2_sentences
 
+def text_similarity_alternative(file_1, file_2, threshold=0.8):
+    """
+    Args:
+        file_1, file_2:  2 input text files.
+    Returns:
+        float: an overall similarity score.
+    """
+    sentences_1 = get_sentences(file_1)
+    sentences_2 = get_sentences(file_2)
+    adjusted_sen2 = align_sentences(sentences_1, sentences_2, threshold=threshold)
+    seq_similarity = sequence_similarity(sentences_1, adjusted_sen2)
+    overall_sim = 0.5 * sts_bert(file_1, file_2) + 0.5 * seq_similarity
+    return overall_sim
 
 def calculate_precision_recall(groundt, generated):
     """

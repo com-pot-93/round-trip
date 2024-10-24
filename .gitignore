@@ -1,4 +1,6 @@
 # ignore environmental variables
 .env
 test.py
-__pycache__/
+**/__pycache__/
+nohup.out
+output_csv
