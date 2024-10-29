@@ -97,17 +97,16 @@ Return only json object and nothing else.
 """
 
 json_desc= """
-To create a JSON representation of a BPMN2.0 process, follow these guidelines:
+***Guidelines***
 1. Define the Process Elements:
     Tasks: Represent individual units of work or steps within a process.
       Each task encapsulates a specific activity performed by either a participant or system:.
 
-        id: A unique identifier for the task.
+        id: A unique identifier for the task. (ex: id1, id2, etc.)
         name: A brief description of the task. (ex: "Approve Loan Application")
         type: The type of task, such as "User", "Service", "Manual", etc.
         (A "User" task is performed by a human, a "Manual" task is conducted without software
-        or system intervention, often performed manually (e.g., filling out a paper form)
-        and etc)
+        or system intervention, often performed manually and etc)
 
     Events: Define the start and end points of the process as events. Include:
 
@@ -155,49 +154,3 @@ To create a JSON representation of a BPMN2.0 process, follow these guidelines:
 Return only a json object with double quotes and use no code formatting.
 """
 
-json_desc_2 = """
-Guidelines:
-1- Process Elements:
-    Tasks: Represent individual units of work or steps within a process.
-        id: A unique identifier for the task (e.g., "id-1", "id-2", etc.).
-        name: A brief and descriptive name of the task (e.g., "Enter login data", "Confirm order", etc.).
-        type: The type of task (e.g., "User", "Service", "Manual", etc.).
-    Events: Define the start and end points of the process as events.
-        id: A unique identifier for the event.
-        name: The name of the event (e.g., "User wants to login", "Finish", etc.).
-        type: The type of event (e.g., "StartNoneEvent", "EndNoneEvent").
-    Gateways: Define decision points in the process.
-        id: A unique identifier for the gateway.
-        type: The type of gateway (e.g., "Exclusive", "Parallel").
-2- Pools and Lanes:
-    Pools: Represent distinct participants or entities in a process.
-        id: A unique identifier for the pool.
-        name: The name of the pool.
-        Lanes: Define lanes within pools if necessary.
-            id: A unique identifier for the lane.
-            name: The name of the lane.
-            elemRefs: List of ids of elements (tasks, events, etc.) within the lane.
-    If the textual description mentions explicitely multiple participants or entities, define multiple pools and lanes accordingly.
-    otherwise, return an empty list for Pools.
-3- Sequence Flows:
-    Indicate the flow or order of tasks, events, gateways, etc.
-        id: A unique identifier for the sequence flow.
-        sourceRef: The id of the element where the flow starts.
-        targetRef: The id of the element where the flow ends.
-        condition: Define conditions for sequence flows when necessary (e.g., "Yes", "No", etc.).
-4- Message Flows:
-    If the process involves communication between different pools, define message flows.
-        id: A unique identifier for the message flow.
-        sourceRef: The id of the element sending the message.
-        targetRef: The id of the element receiving the message.
-JSON Structure:
-The entire JSON should be a dictionary with the following keys:
-+ tasks
-+ events
-+ gateways
-+ pools
-+ sequenceFlows
-+ messageFlows
-Please return only a JSON object with double quotes and no code formatting.
-if an element does not exist in the description, output an empty list for it.
-"""

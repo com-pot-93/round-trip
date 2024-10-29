@@ -18,7 +18,7 @@ from src.m2t.create_description import generate_prompt_gpt as generate_prompt_gp
 from src.m2t.prompt_engineering import bpmn_desc
 
 from src.t2m.create_model import generate_prompt_gpt as generate_prompt_gpt_t2m
-from src.t2m.prompt_engineering import json_desc, json_format, json_desc_2
+from src.t2m.prompt_engineering import json_desc, json_format
 
 from text_evaluation import text_similarity
 
@@ -43,14 +43,19 @@ def main_m2m(model_path, text_path):
         path_to_text = "./data/prompt_ex_text_real_set.txt"
 
     system_prompt_m2t, user_prompt_m2t, assistant_prompt_m2t = generate_prompt_gpt_m2t(path_to_json, path_to_text, bpmn_desc)
-    system_prompt_t2m, user_prompt_t2m, assistant_prompt_t2m = generate_prompt_gpt_t2m(path_to_json, path_to_text, json_format)
+    system_prompt_t2m, user_prompt_t2m, assistant_prompt_t2m = generate_prompt_gpt_t2m(path_to_json, path_to_text, json_desc)
+    print("M2T")
+    print(system_prompt_m2t, user_prompt_m2t, assistant_prompt_m2t)
+
+    print("T2M")
+    print(system_prompt_t2m, user_prompt_t2m, assistant_prompt_t2m)
 
     t2t_eval_1 = {}
     t2t_eval_2 = {}
     m2m_eval_1 = {}
     m2m_eval_2 = {}
     temp_in = 1
-    temp_out = 0
+    temp_out = 0.1
 
     model_files = os.listdir(model_path)
     logger.info('Starting the processing of models and texts')
@@ -97,15 +102,15 @@ def main_m2m(model_path, text_path):
 
                 try:
                     text_eval_1.append(text_similarity.sts_bert(description, gen_text))
-                    text_eval_2.append(text_similarity.text_similarity_alternative(description, gen_text, threshold=0.8))
+                    text_eval_2.append(text_similarity.text_similarity_alternative(description, gen_text, threshold=0.75))
                     model_eval_1.append(
                         bpmn_similarity.calculate_similarity_scores(
-                            model, json.loads(gen_model), method="dice", similarity_threshold=0.8
+                            model, json.loads(gen_model), method="dice", similarity_threshold=0.75
                         )[0]["overall"]
                     )
                     model_eval_2.append(
                         bpmn_similarity.calculate_similarity_alternative(
-                            model, json.loads(gen_model), method="dice", similarity_threshold=0.8
+                            model, json.loads(gen_model), method="dice", similarity_threshold=0.75
                         )["overall"]
                     )
                 except Exception as e:
@@ -162,7 +167,7 @@ def main_t2t(model_path, text_path):
         path_to_text = "./data/prompt_ex_text_real_set.txt"
 
     system_prompt_m2t, user_prompt_m2t, assistant_prompt_m2t = generate_prompt_gpt_m2t(path_to_json, path_to_text, bpmn_desc)
-    system_prompt_t2m, user_prompt_t2m, assistant_prompt_t2m = generate_prompt_gpt_t2m(path_to_json, path_to_text, json_format)
+    system_prompt_t2m, user_prompt_t2m, assistant_prompt_t2m = generate_prompt_gpt_t2m(path_to_json, path_to_text, json_desc)
 
 
     t2t_eval_1 = {}
@@ -170,7 +175,7 @@ def main_t2t(model_path, text_path):
     m2m_eval_1 = {}
     m2m_eval_2 = {}
     temp_in = 1
-    temp_out = 0
+    temp_out = 0.1
 
     model_files = os.listdir(model_path)
     logger.info('Starting the processing of models and texts')
@@ -217,15 +222,15 @@ def main_t2t(model_path, text_path):
 
                 try:
                     text_eval_1.append(text_similarity.sts_bert(description, gen_text))
-                    text_eval_2.append(text_similarity.text_similarity_alternative(description, gen_text, threshold=0.8))
+                    text_eval_2.append(text_similarity.text_similarity_alternative(description, gen_text, threshold=0.75))
                     model_eval_1.append(
                         bpmn_similarity.calculate_similarity_scores(
-                            model, json.loads(gen_model), method="dice", similarity_threshold=0.8
+                            model, json.loads(gen_model), method="dice", similarity_threshold=0.75
                         )[0]["overall"]
                     )
                     model_eval_2.append(
                         bpmn_similarity.calculate_similarity_alternative(
-                            model, json.loads(gen_model), method="dice", similarity_threshold=0.8
+                            model, json.loads(gen_model), method="dice", similarity_threshold=0.75
                         )["overall"]
                     )
                 except Exception as e:
