@@ -21,36 +21,56 @@ final_template = {
 
 """ extract unique list of tasks from generated mermaid.js model """
 def get_elements(content,elements):
+    tasks = []
+    gateways = []
+    events = []
+    temp = []
+    tempflow = []
     content = content.splitlines()
     counter = 0
     for c in content:
-        flow = {}
-        nodes = c.split("-->")
-        for i in range(len(nodes)):
-            n = nodes[i]
-            if ":" in n:
-                node_id = n.split(":")[0].strip()
-                node_type =  n.split(":")[1].strip()
-                if "|" in node_id:
-                    node_id = re.search(r'(\d+$)',node_id).group()
+        if '->' in c:
+            flow = {}
+            nodes = c.split("->")
+            for i in range(len(nodes)):
+                n = nodes[i].strip()
+                if '"' in n:
+                    n = re.findall('"([^"]*)"', n)[0]
+                if n not in temp:
+                    temp.append(n)
                 flow["id"] = "sf{}".format(counter)
                 if i == 0:
-                    flow["sourceRef"] = node_id
+                    flow["sourceRef"] = n
                 elif i == 1:
-                    flow["targetRef"] = node_id
+                    flow["targetRef"] = n
+            if flow:
+                tempflow.append(flow)
+                counter = counter + 1
 
-                if "task" in node_type:
-                    label = get_task_nodes(n,r'\((.*?)\)')
-                    if label:
-                        elements["tasks"][node_id] = label
-                elif "event" in node_type:
-                    elements["events"][node_id] = node_type
-                elif "gateway" in node_type:
-                    elements["gateways"][node_id] = node_type
-        if flow:
-            elements["sequenceFlows"].append(flow)
-            counter = counter + 1
+    for t in range(0,len(temp)):
+        node_id = t
+        node_label = temp[t]
+        if '_SPLIT' in node_label or '_JOIN' in node_label:
+            if 'AND' in node_label:
+                elements["gateways"][node_id] = 'parallelgateway'
+            elif 'OR' in node_label:
+                elements["gateways"][node_id] = 'inclusivegateway'
+            elif 'XOR' in node_label:
+                elements["gateways"][node_id] = 'exclusivegateway'
+        elif '_NODE' in node_label:
+            if 'START' in node_label:
+                elements["events"][node_id] = 'startevent'
+            elif 'END' in node_label:
+                elements["events"][node_id] = 'endevent'
+        else:
+             elements["tasks"][node_id] = node_label
+
+    for tf in tempflow:
+        tf['sourceRef'] = temp.index(tf['sourceRef'])
+        tf['targetRef'] = temp.index(tf['targetRef'])
+    elements["sequenceFlows"] = tempflow
     return elements
+
 
 """ return the last id in the model """
 def get_max_keys(elements):
@@ -81,6 +101,8 @@ def sort_elements(elements,final):
                     gateway = {'id': t,'type':'Exclusive'}
                 elif "parallel" in elements[e][t]:
                     gateway = {'id': t,'type':'Parallel'}
+                elif "inclusive" in elements[e][t]:
+                    gateway = {'id': t,'type':'Inclusive'}
                 else:
                     gateway = {'id': t,'type':'UNDEFINED'}
                 final["gateways"].append(gateway)
@@ -89,9 +111,8 @@ def sort_elements(elements,final):
     return final
 
 """ convert mermaid.js model into bpmn.json """
-def mermaid_to_json(generated):
+def mad_to_json(generated):
     all_nodes = get_elements(generated,deepcopy(template))
-    print(all_nodes)
     converted = sort_elements(all_nodes,deepcopy(final_template))
     return converted
 
