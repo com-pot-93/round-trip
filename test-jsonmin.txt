@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        { "id": "2", "name": "Task 2", "type": "Task" },
+        { "name": "Task 1", "id": "14", ... },
+        { "name": "Task 4", "id": "6", ... },
+        { "name": "Task 3", "id": "7", ... }
+    ],
+    "events": [
+        { "id": "1", "name": "", "type": "StartNoneEvent" },
+        { "name": "", "id": "9", ... },
+        { "name": "", "id": "13", ... },
+        { "name": "", "id": "15", ... }
+    ],
+    "gateways": [
+        { "id": "3", "type": "Exclusive" },
+        { "type": "Exclusive", "id":"8" }
+    ],
+    "pools": [
+        { "id": "12", "name": "Pool 1", "lanes": [ ... ] },
+        { "id": "4", "name": "Pool 2",
+            "lanes": [
+                { "id": "5", "name": "Lane 1",
+                  "elemRefs": [ "1", "2", "3", "7", "8", "9"]
+                },
+                { "id": "11", "name": "Lane 2", "elemRefs": [ ... ] }
+            ]
+        }
+    ],
+    "messageFlows": [
+        { "id": "31", "targetRef": "14", "sourceRef": "2" }
+    ],
+    "sequenceFlows": [
+        { "id": "20", "sourceRef": "1", "targetRef": "2" },
+        ...
+    ]
+}

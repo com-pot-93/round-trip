@@ -1,0 +1,50 @@
+<definitions ... >
+  <process name="Pool 2" id="4" ... >
+    <task name="Task 2" id="2" ... >
+      <extensionElements>
+        <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+      </extensionElements>
+      <incoming>1</incoming>
+      <outgoing>3</outgoing>
+    </task>
+    <task name="Task 3" id="6" ... > ... </task>
+    <task name="Task 4" id="7" ... > ... </task>
+    <startEvent name="" id="1" ... >
+      <extensionElements> ... </extensionElements>
+      <outgoing>2</outgoing>
+    </startEvent>
+    <exclusiveGateway name="" id="3" ... >
+      <extensionElements> ... </extensionElements>
+      <incoming>2</incoming>
+      <outgoing>6</outgoing>
+      <outgoing>7</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway name="" id="8" ... > ... </exclusiveGateway>
+    <endEvent name="" id="9" ... > ... </endEvent>
+    <laneSet id="10" ... >
+      <lane name="Lane 1" id="5">
+        <extensionElements> ... </extensionElements>
+        <flowNodeRef>1</flowNodeRef>
+        <flowNodeRef>2</flowNodeRef>
+        <flowNodeRef>3</flowNodeRef>
+      </lane>
+      <lane name="Lane 2" id="11" ... > ... </lane>
+    </laneSet>
+    <sequenceFlow id="20" name="" sourceRef="1" targetRef="2">
+      <extensionElements> ... </extensionElements>
+    </sequenceFlow>
+  </process>
+  <process name="Pool 1" id="12" ... >
+    <startEvent name="" id="13" ... ></startEvent>
+    <task name="Task 1" id="14" ... ></task>
+    <endEvent name="" id="15" ... ></endEvent>
+    <laneSet id="16" ... > ... </laneSet>
+  </process>
+  <collaboration id="30">
+    <messageFlow id="31" name="" sourceRef="14" targetRef="2">
+      <extensionElements> ... </extensionElements>
+    </messageFlow>
+  </collaboration>
+</definitions>
+
+

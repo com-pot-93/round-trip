@@ -1,0 +1,16 @@
+install poetry:
+pip install poetry
+
+install pyenv:
+https://gist.github.com/trongnghia203/9cc8157acb1a9faad2de95c3175aa875
+
+install correct python version:
+pyenv install 3.9.8
+pyenv local 3.9.8  # Activate Python 3.9 for the current project
+
+install poetry project:
+poetry install
+
+for more details:
+https://python-poetry.org/docs/managing-environments/
+

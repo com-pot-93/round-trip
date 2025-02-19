@@ -25,9 +25,9 @@ import os
 # description = generate_description(model,generated)
 #
 # """ examples for merson package """
-generated = open('examples/mermaid_1.txt', 'r').read()
-newjson = mermaid_to_json(generated)
-print(newjson)
+#generated = open('examples/mermaid_1.txt', 'r').read()
+#newjson = mermaid_to_json(generated)
+#print(newjson)
 #
 # model = open('examples/generated_1.txt')
 # elements = json.load(model)
@@ -61,30 +61,47 @@ print(newjson)
 #
 
 
-# test mad data
-generated = open('examples/mad_test.gv', 'r').read()
-print(generated)
-newjson = mad_to_json(generated)
-print(newjson)
+# # test mad data
+# generated = open('examples/mad_test.gv', 'r').read()
+# print(generated)
+# newjson = mad_to_json(generated)
+# print(newjson)
+#
+#
+# generated = open('examples/mad_test_9.gv', 'r').read()
+# print(generated)
+# newjson = mad_to_json(generated)
+# print(newjson)
+#
+# generated = open('examples/mad_test_1.gv', 'r').read()
+# print(generated)
+# newjson = mad_to_json(generated)
+# print(newjson)
 
 
-generated = open('examples/mad_test_9.gv', 'r').read()
-print(generated)
-newjson = mad_to_json(generated)
-print(newjson)
-
-generated = open('examples/mad_test_1.gv', 'r').read()
-print(generated)
-newjson = mad_to_json(generated)
-print(newjson)
-
-
-
+# # """ examples for merson package """
+# generated = open('examples/round/model1.mmd', 'r').read()
+# newjson = mermaid_to_json(generated)
+# print(newjson)
+#
+# # """ examples for merson package """
+# generated = open('examples/round/model2.mmd', 'r').read()
+# newjson = mermaid_to_json(generated)
+# print(newjson)
+#
 
 
+ground_path = open('../llm-round-trip-correctness/data/mad/ground_truth/account_payable_process_36.json')
+content_path = open('../text2process-evaluation/datasets/mad150/generations_simplified/klu-bpmn-chatbot/gpt-4o_r1/account_payable_process_36.json')
+elements1 = json.load(ground_path)
+elements2 = json.load(content_path)
 
-
-
+print("--------elements-------", elements1)
+print("--------elements   2 -------", elements2)
+mermaid1 = json_to_mermaid(elements1)
+mermaid2 = json_to_mermaid(elements2)
+print(mermaid1)
+print(mermaid2)
 
 
 

@@ -5,8 +5,8 @@ import pandas as pd
 import re
 import numpy as np
 
-
-model = SentenceTransformer('sentence-transformers/stsb-mpnet-base-v2')
+#model = SentenceTransformer('sentence-transformers/stsb-mpnet-base-v2')
+model = SentenceTransformer('Alibaba-NLP/gte-large-en-v1.5', trust_remote_code=True)
 
 """ this function returns the cosine similarity betweeen 2 documents using TF-IDF """
 def get_cosine(text1,text2):
@@ -179,9 +179,9 @@ def calculate_precision_recall(groundt, generated):
 
 
 """ this function takes two texts as input and return precision and recall: text1 - original, text2 - generated """
-def get_simple_kpis(list1,list2):
+def get_simple_kpis(list1,list2,thold):
     matrix = create_matrix(list1,list2,"bert")
-    recall = find_recall(matrix,0.5)
-    precision = find_precision(matrix,0.5)
+    recall = find_recall(matrix,thold)
+    precision = find_precision(matrix,thold)
     return recall, precision
 

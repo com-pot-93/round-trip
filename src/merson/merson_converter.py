@@ -124,6 +124,9 @@ def transform_nodes(model):
                 elif gateway_type == "parallel" or "parallel" in gateway_type:
                     node_type = "parallelgateway"
                     gate_label = "AND"
+                elif gateway_type == "inclusive" or "inclusive" in gateway_type:
+                    node_type = "inclusivegateway"
+                    gate_label = "O"
                 else:
                     continue
                 node = "{}:{}:{{{}}}".format(elem_id,node_type,gate_label)
